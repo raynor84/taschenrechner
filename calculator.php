@@ -40,7 +40,7 @@ class Calculator {
 								"priority" => 1,
 								);
 
-		$termobject = new Term($term, $this->operationen);
+		$termobject = new Term($term, $this->operationen, new Numeric());
 		//Wenn der Term nicht gültig ist schmeiße nen Fehler
 		if(!$termobject->verify()) {
 			throw new Exception("Bitte einen gültigen Term eingeben ");		

@@ -12,11 +12,13 @@ require_once("wurzel.php");
 	class Term {
 		private $array;
 		private $term;
+		private $numeric;
 		private $operationen;
-		public function __construct(String $term, Array $operationen) {
+		public function __construct(String $term, Array $operationen, $numeric) {
 				//Initialisiere alle möglichen Operationen und speichere Sie im Attribut Operationen
 				$this->operationen = $operationen;
 				$this->term = $term;
+				$this->numeric = $numeric;
 				//Array mit dem intern gearbeitet wird
 				//statt str_split
 				$this->array =preg_split('/(?<!^)(?!$)/u', $term );
@@ -77,7 +79,7 @@ require_once("wurzel.php");
 
 						$this->term = $object->findAndCalculateTerm($this->term);
 						$this->array= str_split($this->term);
-						$this->array = Numeric::concatinateNumericValues($this->array);
+						$this->array = $this->numeric->concatinateNumericValues($this->array);
 						$this->term = implode("", $this->array);
 
 					} else {
