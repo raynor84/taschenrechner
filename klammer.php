@@ -46,7 +46,6 @@
 					//var_dump($term2);
 					//Erzeuge einen neuen Term
 					
-					$object_calculator2 = new Calculator();
 					
 					//Lösche die öffnende und schließende Klammer 
 					for($i=$klammer_auf+1; $i<=$klammer_zu; $i++) {
@@ -54,7 +53,7 @@
 					}
 					//gebe das Ergebnis
 					//zurück
-					$array[$klammer_auf] = $object_calculator2->calculate($term2);
+					$array[$klammer_auf] = $this->calculator->calculate($term2);
 					$array = array_values($array);
 					$term = implode("", $array);
 					return $term;

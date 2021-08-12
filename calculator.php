@@ -7,38 +7,38 @@ class Calculator {
 		//Deklariere einen Term und übergebe den Term
 		$this->operationen = array();
 		$this->operationen[] = array(
-											"object"=>new Klammer(),
-											"priority"=>4,
-											);
+								"object"=>new Klammer(new Calculator(), new Numeric()),
+								"priority"=>4,
+								);
 		$this->operationen[] = array(
-								"object"=>new KlammerZu(),
+								"object"=>new KlammerZu(new Calculator(), new Numeric()),
 								"priority"=> 4,
 								);
 		$this->operationen[] = array(
-									"object"=>new Wurzel(),
-									"priority"=>3,
-									);
+								"object"=>new Wurzel(new Calculator(), new Numeric()),
+								"priority"=>3,
+								);
 		$this->operationen[] = array(
-									"object"=>new Potenz(),
-									"priority"=>3,
-									);
+								"object"=>new Potenz(new Calculator(), new Numeric()),
+								"priority"=>3,
+								);
 		$this->operationen[] = array(
-									"object"=>new Multiplikation(),
-									"priority"=>2,
-									);
+								"object"=>new Multiplikation(new Calculator(), new Numeric()),
+								"priority"=>2,
+								);
 		$this->operationen[] = array(
-									"object"=>new Division(),
-									"priority"=>2,
-									);
+								"object"=>new Division(new Calculator(), new Numeric()),
+								"priority"=>2,
+								);
 								
 		$this->operationen[] = array(
-									"object" =>new Addition(),
-									"priority" => 1,
-									);				
+								"object" =>new Addition(new Calculator(), new Numeric()),
+								"priority" => 1,
+								);				
 		$this->operationen[] = array(
-									"object" =>new Subtraktion(),
-									"priority" => 1,
-									);
+								"object" =>new Subtraktion(new Calculator(), new Numeric()),
+								"priority" => 1,
+								);
 
 		$termobject = new Term($term, $this->operationen);
 		//Wenn der Term nicht gültig ist schmeiße nen Fehler

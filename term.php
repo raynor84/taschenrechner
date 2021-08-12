@@ -21,6 +21,8 @@ require_once("wurzel.php");
 				//statt str_split
 				$this->array =preg_split('/(?<!^)(?!$)/u', $term );
 		}
+		
+		
 		//Überprüfe ob der Term gültig ist.	
 		public function verify() {
 			
@@ -62,6 +64,7 @@ require_once("wurzel.php");
 			}
 			return true;
 		}
+		
 		
 		/*Löse den Term auf */
 		public function resolve() {

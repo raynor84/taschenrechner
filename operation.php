@@ -1,6 +1,11 @@
 <?php
 	//Abstrakte Klasse Operation
 	abstract class Operation {
+    	protected $calculator;
+    	public function __construct(Calculator $calculator, Numeric $numeric) {
+        	$this->calculator = $calculator;
+        	$this->numeric = $numeric;
+    	}
 		//Gibt Operanten zurück
 		abstract public function getSign();
 		//Berechnet den Term und gibt den neuen Term zurück
@@ -11,7 +16,7 @@
 			$array = preg_split('/(?<!^)(?!$)/u', $term );
 		   	
 			//füge alle darauf folgenden nummerischen werte zusammen
-			$array = Numeric::concatinateNumericValues($array);
+			$array = $this->numeric->concatinateNumericValues($array);
 			
 			for($i =0; $i < sizeof($array)-1; $i++) {
 
