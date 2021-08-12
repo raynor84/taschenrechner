@@ -32,7 +32,7 @@
 					$array = array_values($array);
 					//var_dump($array);
 					//Füge den Term wieder zusammen
-					$term = implode($array, "");
+					$term = implode("", $array);
 					
 					return $term;
 					
@@ -40,7 +40,7 @@
 
 			}
 			if(sizeof($array)>0)
-				$term = implode($array, "");
+				$term = implode("", $array);
 			else 
 				$term = "";
 			return $term;

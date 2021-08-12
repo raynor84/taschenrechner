@@ -13,42 +13,9 @@ require_once("wurzel.php");
 		private $array;
 		private $term;
 		private $operationen;
-		public function __construct($term) {
+		public function __construct(String $term, Array $operationen) {
 				//Initialisiere alle möglichen Operationen und speichere Sie im Attribut Operationen
-				$this->operationen = array();
-				$this->operationen[] = array(
-											"object"=>new Klammer(),
-											"priority"=>4,
-											);
-				$this->operationen[] = array(
-										"object"=>new KlammerZu(),
-										"priority"=> 4,
-										);
-				$this->operationen[] = array(
-											"object"=>new Wurzel(),
-											"priority"=>3,
-											);
-				$this->operationen[] = array(
-											"object"=>new Potenz(),
-											"priority"=>3,
-											);
-				$this->operationen[] = array(
-											"object"=>new Multiplikation(),
-											"priority"=>2,
-											);
-				$this->operationen[] = array(
-											"object"=>new Division(),
-											"priority"=>2,
-											);
-										
-				$this->operationen[] = array(
-											"object" =>new Addition(),
-											"priority" => 1,
-											);				
-				$this->operationen[] = array(
-											"object" =>new Subtraktion(),
-											"priority" => 1,
-											);
+				$this->operationen = $operationen;
 				$this->term = $term;
 				//Array mit dem intern gearbeitet wird
 				//statt str_split

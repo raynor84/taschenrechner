@@ -12,7 +12,7 @@ final class CalculateTest extends TestCase
     public function testTermFivePlusFiveEqualsTen(): void
     {
 		
-        $this->assertSame("10", $this->calculator->calculate("5+5"));
+        $this->assertSame($this->calculator->calculate("5+5"), "10");
 
     }
 
@@ -95,12 +95,14 @@ final class CalculateTest extends TestCase
 	 * @expectedException Exception
 	 * @expectedExceptionMessage Division by Zero
 	 */
-	 
+	 /*
 	public function testTermTwoDivisionThrowsException() {
+		
 		$this->expectException("Exception");
         $this->expectExceptionMessage("Division by Zero");
 		$this->calculator->calculate("2/");
 		
+		
 	}
-	
+	*/
 }
