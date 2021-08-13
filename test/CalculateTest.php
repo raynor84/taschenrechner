@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
-require("../calculator.php");
+require(dirname(__FILE__)."/../calculator.php");
 final class CalculateTest extends TestCase
 {
 	private $calculator;

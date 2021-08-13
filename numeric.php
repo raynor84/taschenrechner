@@ -7,13 +7,7 @@
 				if(is_numeric($array[$i])
 					||self::is_negative($array, $i)
 					){
-					if(array_key_exists($i-1, $array)
-						&&($array[$i-1]=="-")
-						&&($array[$i]=="-")
-						&&(array_key_exists($i+1, $array))
-						&&(is_numeric($array[$i+1]))
-						&&(!array_key_exists($i-2, $array))
-						) {
+    					if(self::isNumberWithTwoNegatives($array, $i)) {
 							unset($array[$i-1]);
 							unset($array[$i]);
 							$array = array_values($array);
@@ -38,7 +32,6 @@
 					}					
 				}			
 			}
-			
 			return $array;
 		}
 		
@@ -49,6 +42,19 @@
 					||(($array[$i]=="-")
 					&&(!array_key_exists($i-1, $array))
 					);	
+		}
+		private static function isNumberWithTwoNegatives($array, $i) {
+			if(array_key_exists($i-1, $array)
+				&&($array[$i-1]=="-")
+				&&($array[$i]=="-")
+				&&(array_key_exists($i+1, $array))
+				&&(is_numeric($array[$i+1]))
+				&&(!array_key_exists($i-2, $array))
+				) {
+    				return true;
+                }
+                return false;
+
 		}
 	}
 	
