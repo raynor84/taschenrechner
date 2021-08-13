@@ -38,7 +38,7 @@
 					//var_dump($array);
 					//Füge den Term wieder zusammen
 					$term = implode("", $array);
-					
+					//echo $term;
 					return $term;
 					
 				}

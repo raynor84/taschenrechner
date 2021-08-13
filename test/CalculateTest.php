@@ -105,4 +105,8 @@ final class CalculateTest extends TestCase
 		
 	}
 	*/
+	
+	protected function tearDown(): void {
+    	$this->calculator=NULL;
+	}
 }
