@@ -9,17 +9,19 @@ final class OperationTest extends TestCase
 	private $operation;
 	private $numeric;
 	private $calculator;
+	private $stub;
 	protected function setUp(): void
     {
-        $this->calculator = m::mock('Calculator');
-        $this->numeric = m::mock('Numeric');
+        $this->calculator = $this->createMock(Calculator::class);
+        $this->numeric = $this->createMock(Numeric::class);
 
     }
     
     public function testTerm5Minus5Equals0(): void
     {
+        $this->numeric->method('concatinateNumericValues')->willReturn(array(5,"-",5));
         $this->operation = new Subtraktion($this->calculator, $this->numeric);
-        $this->numeric->shouldReceive('concatinateNumericValues')->andReturn(array(5,"-",5));
+
 		
         $this->assertSame("0", $this->operation->findAndCalculateTerm("5-5"));
 
@@ -27,8 +29,8 @@ final class OperationTest extends TestCase
     
     public function testTerm10Minus5Equals5(): void
     {
+        $this->numeric->method('concatinateNumericValues')->willReturn(array(10,"-",5));
         $this->operation = new Subtraktion($this->calculator, $this->numeric);
-        $this->numeric->shouldReceive('concatinateNumericValues')->andReturn(array(10,"-",5));
 		
         $this->assertSame("5", $this->operation->findAndCalculateTerm("10-5"));
 

@@ -9,27 +9,27 @@ final class SubtraktionTest extends TestCase
 	private $operation;
 	private $numeric;
 	private $calculator;
+    private $stub;
 	protected function setUp(): void
     {
-        $this->calculator = m::mock('Calculator');
-        $this->numeric = m::mock('Numeric');
-
+        $this->calculator = $this->createMock(Calculator::class);
+        $this->numeric = $this->createMock(Numeric::class);
     }
     
     public function testTerm5Minus5Equals0(): void
     {
         $this->operation = new Subtraktion($this->calculator, $this->numeric);
+        $this->numeric->method('concatinateNumericValues')->willReturn(array(25,"-",5, "-", 5));
         
-        $this->numeric->shouldReceive('concatinateNumericValues')->andReturn(array(25,"-",5, "-", 5));
         $this->assertSame("20-5", $this->operation->findAndCalculateTerm("25-5-5"));
-        $this->numeric = NULL;
 
     }
     
         public function testTerm10Minus5Equals5(): void
     {
         $this->operation = new Subtraktion($this->calculator, $this->numeric);
-        $this->numeric->shouldReceive('concatinateNumericValues')->andReturn(array(10,"-",5, "+", 5));
+        $this->numeric->method('concatinateNumericValues')->willReturn(array(10,"-",5, "+", 5));
+
 		
         $this->assertSame("5+5", $this->operation->findAndCalculateTerm("10-5+5"));
 

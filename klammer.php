@@ -13,7 +13,7 @@
 			//breche den Term in ein Array auf
 			$array = str_split($term);
 			//Füge alle aufeinander folgenden Zahlen zusammen
-			$array = Numeric::concatinateNumericValues($array);
+			$array = (new Numeric())->concatinateNumericValues($array);
 			//Sucht nach einer Klammer
 			$klammer_zu_gefunden = false;	
 			$klammer_auf = -1;
