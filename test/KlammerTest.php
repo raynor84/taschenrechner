@@ -9,8 +9,8 @@ final class KlammerTest extends TestCase
 	private $operation;
 	private $numeric;
 	private $calculator;
-    private $stub;
-	protected function setUp(): void
+
+    protected function setUp(): void
     {
         $this->calculator = $this->createMock(Calculator::class);
         $this->numeric = $this->createMock(Numeric::class);
