@@ -7,7 +7,6 @@
 		}	
 		
 		public function calculate($a, $b=NULL) {
-			echo $b;
 			if($a==NULL) {
 				$a=$b;
 				$b=2;

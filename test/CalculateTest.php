@@ -1,12 +1,14 @@
 <?php declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
-require(dirname(__FILE__)."/../calculator.php");
+require_once(dirname(__FILE__)."/../calculator.php");
+require_once(dirname(__FILE__)."/init.php");
 final class CalculateTest extends TestCase
 {
 	private $calculator;
 	protected function setUp(): void
     {
-        $this->calculator = new Calculator();
+        $init = new Init();
+        $this->calculator = $init->calculator();
     }
 
     public function testTermFivePlusFiveEqualsTen(): void

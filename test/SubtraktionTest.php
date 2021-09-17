@@ -16,7 +16,7 @@ final class SubtraktionTest extends TestCase
         $this->numeric = $this->createMock(Numeric::class);
     }
     
-    public function testTerm5Minus5Equals0(): void
+    public function testTerm20Minus5Minus5Equals20Minus5(): void
     {
         $this->operation = new Subtraktion($this->calculator, $this->numeric);
         $this->numeric->method('concatinateNumericValues')->willReturn(array(25,"-",5, "-", 5));
@@ -25,7 +25,7 @@ final class SubtraktionTest extends TestCase
 
     }
     
-        public function testTerm10Minus5Equals5(): void
+        public function testTerm10Minus5Plus5Equals5Plus5(): void
     {
         $this->operation = new Subtraktion($this->calculator, $this->numeric);
         $this->numeric->method('concatinateNumericValues')->willReturn(array(10,"-",5, "+", 5));

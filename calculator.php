@@ -1,44 +1,16 @@
 <?php
 require_once("term.php");
+require_once("operation.php");
 class Calculator {
-	private $operationen;
-
+	private $operationen = array();
+    public function addOperation(int $reversepriority, Operation $operation) {
+        array_push($this->operationen, array("reversepriority" => $reversepriority, "object"=> $operation));
+    }
 	public function calculate($term=0) {
-		//Deklariere einen Term und übergebe den Term
-		$this->operationen = array();
-		$this->operationen[] = array(
-								"object"=>new Klammer(new Calculator(), new Numeric()),
-								"priority"=>4,
-								);
-		$this->operationen[] = array(
-								"object"=>new KlammerZu(new Calculator(), new Numeric()),
-								"priority"=> 4,
-								);
-		$this->operationen[] = array(
-								"object"=>new Wurzel(new Calculator(), new Numeric()),
-								"priority"=>3,
-								);
-		$this->operationen[] = array(
-								"object"=>new Potenz(new Calculator(), new Numeric()),
-								"priority"=>3,
-								);
-		$this->operationen[] = array(
-								"object"=>new Multiplikation(new Calculator(), new Numeric()),
-								"priority"=>2,
-								);
-		$this->operationen[] = array(
-								"object"=>new Division(new Calculator(), new Numeric()),
-								"priority"=>2,
-								);
-								
-		$this->operationen[] = array(
-								"object" =>new Addition(new Calculator(), new Numeric()),
-								"priority" => 1,
-								);				
-		$this->operationen[] = array(
-								"object" =>new Subtraktion(new Calculator(), new Numeric()),
-								"priority" => 1,
-								);
+		
+    	if(empty($this->operationen)) {
+        	throw new Exception("Keine Operationen für den Taschenrechner vorhanden");
+    	}
 
 		$termobject = new Term($term, $this->operationen, new Numeric());
 		//Wenn der Term nicht gültig ist schmeiße nen Fehler

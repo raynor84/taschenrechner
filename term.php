@@ -97,8 +97,8 @@ require_once("wurzel.php");
 			for($s=0;$s<sizeof($this->array);$s++) {
 				for($i=0; $i<sizeof($this->operationen);$i++) {
 					
-					if(($this->operationen[$i]["priority"]>$max_priority)&&(strcmp($this->array[$s], $this->operationen[$i]["object"]->getSign())==0)) {
-						$max_priority = $this->operationen[$i]["priority"];
+					if(($this->operationen[$i]["reversepriority"]>$max_priority)&&(strcmp($this->array[$s], $this->operationen[$i]["object"]->getSign())==0)) {
+						$max_priority = $this->operationen[$i]["reversepriority"];
 						$priority = $this->operationen[$i]["object"];
 						
 					}
