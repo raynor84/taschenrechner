@@ -1,6 +1,6 @@
 <?php
-	require_once("operation.php");
-	require_once("numeric.php");
+	namespace Taschenrechner\Classes;
+
 	class Multiplikation extends Operation {
 		//Gibt das Zeichen für die Operation zurück
 		public function getSign() {

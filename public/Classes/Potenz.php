@@ -1,5 +1,6 @@
 <?php
-	require_once("operation.php");
+    namespace Taschenrechner\Classes;
+    
 	class Potenz extends Operation {
 		//Gibt das Zeichen für die Operation zurück
 		public function getSign() {

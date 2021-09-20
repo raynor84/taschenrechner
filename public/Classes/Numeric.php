@@ -1,4 +1,6 @@
 <?php
+    namespace Taschenrechner\Classes;
+
 	class Numeric {
 		public function concatinateNumericValues($array) {
 			//Durchsuche das Array nach dem Vorhandensein eines numerischen Wert

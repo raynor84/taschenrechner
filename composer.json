@@ -2,5 +2,10 @@
     "require-dev": {
         "mockery/mockery": "^1.4",
         "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+                "Taschenrechner\\": "public/"
+            }
     }
 }

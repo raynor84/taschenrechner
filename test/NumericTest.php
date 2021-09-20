@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
-use \Mockery as m;
-require_once(dirname(__FILE__)."/../vendor/autoload.php");
-require_once(dirname(__FILE__)."/../numeric.php");
+
+	use Taschenrechner\Classes\Numeric;
+
 final class NumericTest extends TestCase
 {
     private $numeric;    

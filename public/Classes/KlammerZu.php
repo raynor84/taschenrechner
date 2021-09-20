@@ -1,6 +1,7 @@
 <?php
-	require_once("operation.php");
-	require_once("numeric.php");
+	namespace Taschenrechner\Classes;
+
+	
 	class KlammerZu extends Operation {
 		//KlammerZu beinhaltet als Operation eine schließende Klammer
 		public function getSign() {

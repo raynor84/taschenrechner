@@ -1,9 +1,10 @@
 <?php declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
-use \Mockery as m;
-require_once(dirname(__FILE__)."/../vendor/autoload.php");
-require_once(dirname(__FILE__)."/../operation.php");
-require_once(dirname(__FILE__)."/../subtraktion.php");
+	use Taschenrechner\Classes\Calculator;
+	use Taschenrechner\Classes\Subtraktion;
+	use Taschenrechner\Classes\Numeric;
+
+
 final class OperationTest extends TestCase
 {
 	private $operation;

@@ -1,6 +1,6 @@
 <?php
-require_once("term.php");
-require_once("operation.php");
+namespace Taschenrechner\Classes;
+
 class Calculator {
 	private $operationen = array();
     public function addOperation(int $reversepriority, Operation $operation) {

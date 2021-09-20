@@ -1,5 +1,17 @@
 <?php
-	require_once("calculator.php");
+	require_once __DIR__ . '/../vendor/autoload.php';
+	use Taschenrechner\Classes\Calculator;
+	use Taschenrechner\Classes\Klammer;
+	use Taschenrechner\Classes\KlammerZu;
+	use Taschenrechner\Classes\Wurzel;
+	use Taschenrechner\Classes\Potenz;
+	use Taschenrechner\Classes\Multiplikation;
+	use Taschenrechner\Classes\Division;
+	use Taschenrechner\Classes\Addition;
+	use Taschenrechner\Classes\Subtraktion;
+	use Taschenrechner\Classes\Numeric;
+
+
 	
 	try {
 		$term = $_GET["term"];
@@ -8,6 +20,7 @@
 		
 		//Füge Operationen hinzu:
 		//Deklariere einen Term und übergebe den Term
+		
 		$calculator->addOperation(4, new Klammer($calculator, new Numeric()));
 		$calculator->addOperation(4, new KlammerZu($calculator, new Numeric()));
 		$calculator->addOperation(3, new Wurzel($calculator, new Numeric()));

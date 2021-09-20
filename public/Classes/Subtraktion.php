@@ -1,5 +1,5 @@
 <?php
-	require_once("operation.php");
+    namespace Taschenrechner\Classes;
 	
 	class Subtraktion extends Operation {
 		//Gibt das Zeichen für die Operation zurück

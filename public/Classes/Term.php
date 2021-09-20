@@ -1,13 +1,6 @@
 <?php
 
-require_once("addition.php");
-require_once("multiplikation.php");
-require_once("division.php");
-require_once("subtraktion.php");
-require_once("klammer.php");
-require_once("klammerzu.php");
-require_once("potenz.php");
-require_once("wurzel.php");
+    namespace Taschenrechner\Classes;
 
 	class Term {
 		private $array;

@@ -1,10 +1,12 @@
 <?php declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
+	use Taschenrechner\Classes\Calculator;
+	use Taschenrechner\Classes\Addition;
+	use Taschenrechner\Classes\Numeric;
+
 
 require_once(dirname(__FILE__)."/../vendor/autoload.php");
-require_once(dirname(__FILE__)."/../operation.php");
-require_once(dirname(__FILE__)."/../calculator.php");
-require_once(dirname(__FILE__)."/../addition.php");
+
 final class AdditionTest extends TestCase
 {
 	private $operation;

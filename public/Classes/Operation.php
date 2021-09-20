@@ -1,4 +1,6 @@
 <?php
+    namespace Taschenrechner\Classes;
+
 	//Abstrakte Klasse Operation
 	abstract class Operation {
     	protected $calculator;
