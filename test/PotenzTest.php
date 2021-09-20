@@ -2,7 +2,7 @@
 use PHPUnit\Framework\TestCase;
 
 	use Taschenrechner\Classes\Calculator;
-	use Taschenrechner\Classes\Potenz;
+	use Taschenrechner\Classes\Operationen\Potenz;
 	use Taschenrechner\Classes\Numeric;
 
 final class PotenzTest extends TestCase

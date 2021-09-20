@@ -2,7 +2,7 @@
 use PHPUnit\Framework\TestCase;
 
 	use Taschenrechner\Classes\Calculator;
-	use Taschenrechner\Classes\Multiplikation;
+	use Taschenrechner\Classes\Operationen\Multiplikation;
 	use Taschenrechner\Classes\Numeric;
 
 final class MultiplikationTest extends TestCase

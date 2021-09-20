@@ -1,5 +1,7 @@
 <?php
-    namespace Taschenrechner\Classes;
+    namespace Taschenrechner\Classes\Operationen;
+    use Taschenrechner\Classes\Calculator;
+    use Taschenrechner\Classes\Numeric;
 
 	//Abstrakte Klasse Operation
 	abstract class Operation {

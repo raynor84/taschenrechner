@@ -1,5 +1,5 @@
 <?php
-	namespace Taschenrechner\Classes;
+	namespace Taschenrechner\Classes\Operationen;
 
 	
 	class KlammerZu extends Operation {

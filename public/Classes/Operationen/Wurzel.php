@@ -1,5 +1,5 @@
 <?php
-    namespace Taschenrechner\Classes;
+    namespace Taschenrechner\Classes\Operationen;
     
 	class Wurzel extends Operation {
 		//Gibt das Zeichen für die Operation zurück

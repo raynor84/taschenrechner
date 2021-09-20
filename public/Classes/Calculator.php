@@ -1,6 +1,6 @@
 <?php
 namespace Taschenrechner\Classes;
-
+    use Taschenrechner\Classes\Operationen\Operation;
 class Calculator {
 	private $operationen = array();
     public function addOperation(int $reversepriority, Operation $operation) {

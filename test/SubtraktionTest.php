@@ -2,7 +2,7 @@
 use PHPUnit\Framework\TestCase;
 
 	use Taschenrechner\Classes\Calculator;
-	use Taschenrechner\Classes\Subtraktion;
+	use Taschenrechner\Classes\Operationen\Subtraktion;
 	use Taschenrechner\Classes\Numeric;
 
 final class SubtraktionTest extends TestCase

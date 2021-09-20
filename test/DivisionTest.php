@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 	use Taschenrechner\Classes\Calculator;
-	use Taschenrechner\Classes\Division;
+	use Taschenrechner\Classes\Operationen\Division;
 	use Taschenrechner\Classes\Numeric;
 	
 require_once(dirname(__FILE__)."/../vendor/autoload.php");

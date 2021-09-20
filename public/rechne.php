@@ -1,14 +1,14 @@
 <?php
 	require_once __DIR__ . '/../vendor/autoload.php';
 	use Taschenrechner\Classes\Calculator;
-	use Taschenrechner\Classes\Klammer;
-	use Taschenrechner\Classes\KlammerZu;
-	use Taschenrechner\Classes\Wurzel;
-	use Taschenrechner\Classes\Potenz;
-	use Taschenrechner\Classes\Multiplikation;
-	use Taschenrechner\Classes\Division;
-	use Taschenrechner\Classes\Addition;
-	use Taschenrechner\Classes\Subtraktion;
+	use Taschenrechner\Classes\Operationen\Klammer;
+	use Taschenrechner\Classes\Operationen\KlammerZu;
+	use Taschenrechner\Classes\Operationen\Wurzel;
+	use Taschenrechner\Classes\Operationen\Potenz;
+	use Taschenrechner\Classes\Operationen\Multiplikation;
+	use Taschenrechner\Classes\Operationen\Division;
+	use Taschenrechner\Classes\Operationen\Addition;
+	use Taschenrechner\Classes\Operationen\Subtraktion;
 	use Taschenrechner\Classes\Numeric;
 
 

@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 	use Taschenrechner\Classes\Calculator;
-	use Taschenrechner\Classes\Addition;
+	use Taschenrechner\Classes\Operationen\Addition;
 	use Taschenrechner\Classes\Numeric;
 
 

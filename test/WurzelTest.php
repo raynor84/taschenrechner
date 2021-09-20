@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 	use Taschenrechner\Classes\Calculator;
-	use Taschenrechner\Classes\Wurzel;
+	use Taschenrechner\Classes\Operationen\Wurzel;
 	use Taschenrechner\Classes\Numeric;
 
 final class WurzelTest extends TestCase

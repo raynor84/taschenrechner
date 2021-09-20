@@ -1,6 +1,7 @@
 <?php
-	namespace Taschenrechner\Classes;
-
+	namespace Taschenrechner\Classes\Operationen;
+    use Taschenrechner\Classes\Calculator;
+    use Taschenrechner\Classes\Numeric;
 	
 	class Klammer extends Operation {
 		//Gibt das Zeichen für die Operation zurück
