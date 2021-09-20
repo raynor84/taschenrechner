@@ -20,7 +20,7 @@ final class WurzelTest extends TestCase
     
     public function addTermProvider() {
         return array(
-            "Term 4√2 equals 2" => array(array(4,"√", 2),"4√2" ,"2"),
+            "Term 2√4 equals 2" => array(array(2,"√", 4),"2√4" ,"2"),
         );
     }
 

@@ -30,7 +30,7 @@
 					$b= array_key_exists($i+1,$array) ? $array[$i+1]:NULL;
 					
 					if(!is_numeric($array[$i+1])) {
-						throw new Exception("Bitte einen gültigen Term eingeben");
+						throw new \Exception("Bitte einen gültigen Term eingeben");
 					}
 					//Berechne die Operation
 					$array[$i-1] = $this->calculate($a, $b);

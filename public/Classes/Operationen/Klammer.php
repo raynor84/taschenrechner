@@ -30,7 +30,7 @@
 					$klammer_auf = $i;
 					if($i==0) {
 					}else if(is_numeric($array[$i-1])) {
-						throw new Exception("Bitte einen gültigen Term eingeben");
+						throw new \Exception("Bitte einen gültigen Term eingeben");
 					}
 					for($s = $i; $s < sizeof($array); $s++) {
 						if($array[$s]==")") {
@@ -39,7 +39,7 @@
 						}
 					}
 					if($klammer_zu_gefunden == false) {
-						throw new Exception("Es fehlt eine schließende Klammer");
+						throw new \Exception("Es fehlt eine schließende Klammer");
 					}
 					//Speichere den internen Ausdruck in einen Term
 					for($s=$klammer_auf+1; $s < $klammer_zu; $s++) {

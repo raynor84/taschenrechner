@@ -10,7 +10,7 @@
 		public function calculate($a, $b=NULL) {
 			//Berechne die Operation
 			if(empty($b))
-				throw new Exception("Division by Zero");
+				throw new \Exception("Division by Zero");
 			return floatval($a) / floatval($b);
 	
 		}	

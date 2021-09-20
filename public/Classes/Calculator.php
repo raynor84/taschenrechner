@@ -9,13 +9,13 @@ class Calculator {
 	public function calculate($term=0) {
 		
     	if(empty($this->operationen)) {
-        	throw new Exception("Keine Operationen für den Taschenrechner vorhanden");
+        	throw new \Exception("Keine Operationen für den Taschenrechner vorhanden");
     	}
 
 		$termobject = new Term($term, $this->operationen, new Numeric());
 		//Wenn der Term nicht gültig ist schmeiße nen Fehler
 		if(!$termobject->verify()) {
-			throw new Exception("Bitte einen gültigen Term eingeben ");		
+			throw new \Exception("Bitte einen gültigen Term eingeben ");		
 		}
 		
 		//Löse den Term auf und gebe das Ergebnis zurück

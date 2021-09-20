@@ -9,10 +9,9 @@
 		
 		public function calculate($a, $b=NULL) {
 			if($a==NULL) {
-				$a=$b;
-				$b=2;
+				$a=2;
 			}
-			return pow($a,1/$b);
+			return pow($b,1/$a);
 		}
 	}
 ?>

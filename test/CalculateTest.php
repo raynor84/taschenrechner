@@ -61,7 +61,7 @@ final class CalculateTest extends TestCase
 		$this->assertSame("64", $this->calculator->calculate("(2+2)^3"));
 	}	
 	public function testTermSquareRootSixteen():void {
-		$this->assertSame("4", $this->calculator->calculate("16√2"));
+		$this->assertSame("4", $this->calculator->calculate("2√16"));
 	}	
 	public function testTermPotenceHalfSixteen():void {
 		$this->assertSame("4", $this->calculator->calculate("16^(1/2)"));
@@ -78,6 +78,7 @@ final class CalculateTest extends TestCase
 			"Term minus minus 2 equals 2" => array("--2", "2"),
 			"Term 2 minus minus 2 equals 4" => array("2--2", "4"),
 			"Term 4 sqrt equals 2" => array("√4", "2"),
+			"Term 27 sqrt 3 equals 3" => array("3√27", "3"),
 			"Term -2 equals -2" => array("-2", "-2"),
 			"Term +2 equals 2" => array("+2", "2"),
 			"Term /2 equals 0" => array("/2", "0"),
@@ -99,17 +100,19 @@ final class CalculateTest extends TestCase
 	 * @expectedException Exception
 	 * @expectedExceptionMessage Division by Zero
 	 */
-	 /*
-	public function testTermTwoDivisionThrowsException() {
+	public function testTermTwoDivisionByZeroThrowsException() {
 		
 		$this->expectException("Exception");
         $this->expectExceptionMessage("Division by Zero");
-		$this->calculator->calculate("2/");
-		
-		
+		$this->calculator->calculate("2/0");
 	}
-	*/
-	
+	public function testTermEmptyDivisionByZeroThrowsException() {
+		
+		$this->expectException("Exception");
+        $this->expectExceptionMessage("Division by Zero");
+		$this->calculator->calculate("/0");
+	}	
+
 	protected function tearDown(): void {
     	$this->calculator=NULL;
 	}
