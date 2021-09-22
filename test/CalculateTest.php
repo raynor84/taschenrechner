@@ -82,6 +82,7 @@ final class CalculateTest extends TestCase
 			"Term -2 equals -2" => array("-2", "-2"),
 			"Term +2 equals 2" => array("+2", "2"),
 			"Term /2 equals 0" => array("/2", "0"),
+			"Term 8 equals 8" => array("8", "8"),
 			
         );
     }
@@ -111,6 +112,12 @@ final class CalculateTest extends TestCase
 		$this->expectException("Exception");
         $this->expectExceptionMessage("Division by Zero");
 		$this->calculator->calculate("/0");
+	}	
+
+	public function testTermKlammerOnlyThrowsException() {
+		//$this->expectException("Exception");
+        $this->expectExceptionMessage("Bitte geben Sie einen gültigen Term ein!");
+		$this->calculator->calculate("(");
 	}	
 
 	protected function tearDown(): void {

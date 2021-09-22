@@ -20,7 +20,11 @@
 		
 		//Überprüfe ob der Term gültig ist.	
 		public function verify() {
-			
+			if(sizeof($this->array)==1) {
+				if(!is_numeric($this->array[0])) {
+					throw new \Exception("Bitte geben Sie einen gültigen Term ein!");
+				}
+			}
 			for($i=0; $i<sizeof($this->array); $i++) {
 				$bool = 0;
 				for($s = 0; $s<sizeof($this->operationen);$s++) {
