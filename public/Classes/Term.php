@@ -75,10 +75,10 @@
 					if($object != NULL) {
 
 						$this->term = $object->findAndCalculateTerm($this->term);
-						$this->array= str_split($this->term);
+						$this->array= preg_split('/(?<!^)(?!$)/u', $this->term );;
 						$this->array = $this->numeric->concatinateNumericValues($this->array);
-						$this->term = implode("", $this->array);
 
+						$this->term = implode("", $this->array);
 					} else {
 						break;
 					}
