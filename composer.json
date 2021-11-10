@@ -6,5 +6,12 @@
         "psr-4": {
                 "Taschenrechner\\": "public/"
             }
-    }
+    },
+    "repositories":
+      [
+        {
+          "type": "composer",
+          "url": "https:\/\/www.phpclasses.org\/"
+        }
+      ]
 }
