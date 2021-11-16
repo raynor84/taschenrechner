@@ -116,7 +116,7 @@ final class CalculateTest extends TestCase
 
 	public function testTermKlammerOnlyThrowsException() {
 		//$this->expectException("Exception");
-        $this->expectExceptionMessage("Bitte geben Sie einen gültigen Term ein!");
+        $this->expectExceptionMessage("Bitte einen gültigen Term eingeben");
 		$this->calculator->calculate("(");
 	}	
 

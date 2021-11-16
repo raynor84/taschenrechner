@@ -15,7 +15,7 @@ class Calculator {
 		$termobject = new Term($term, $this->operationen, new Numeric());
 		//Wenn der Term nicht gültig ist schmeiße nen Fehler
 		if(!$termobject->verify()) {
-			throw new \Exception("Bitte einen gültigen Term eingeben ");		
+			throw new \Exception("Bitte einen gültigen Term eingeben");		
 		}
 		
 		//Löse den Term auf und gebe das Ergebnis zurück

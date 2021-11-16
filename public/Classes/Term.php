@@ -20,18 +20,16 @@
 		
 		//Überprüfe ob der Term gültig ist.	
 		public function verify() {
-			if(sizeof($this->array)==1) {
-				if(!is_numeric($this->array[0])) {
-					throw new \Exception("Bitte geben Sie einen gültigen Term ein!");
-				}
+			//If size is 1 and is not a number it's not a valid term
+			if($this->sizeOneAndNotNumeric()) {
+				return false;
 			}
-			for($i=0; $i<sizeof($this->array); $i++) {
+			for($term_index=0; $term_index<sizeof($this->array); $term_index++) {
 				$bool = 0;
-				for($s = 0; $s<sizeof($this->operationen);$s++) {
+				for($operation_index = 0; $operation_index<sizeof($this->operationen);$operation_index++) {
 					//Überprüft ob der Wert keines der gültigen Werte besitzt, bsp. ist nich numerisch und hat auch
 					//nicht die nötigen Operationen
-					if((strcmp($this->array[$i], $this->operationen[$s]["object"]->getSign())!=0)&&(!is_numeric($this->array[$i]))
-						&&($this->array[$i]!=",")&&($this->array[$i]!=".")) {
+					if($this->isNotNumericOrKommaOrOperand($term_index, $operation_index)) {
 						$bool++;
 					}
 					for($t=1; $t<sizeof($this->operationen);$t++) {
@@ -39,11 +37,11 @@
 							continue;
 						}
 						
-						if((strcmp($this->array[$i], $this->operationen[$s]["object"]->getSign())==0)
-							&&(array_key_exists($i+1, $this->array))
-							&&(strcmp($this->array[$i+1], $this->operationen[$t]["object"]->getSign())==0)
-							&&($this->array[$i] != ")")
-							&&($this->array[$i+1]!="(")
+						if((strcmp($this->array[$term_index], $this->operationen[$operation_index]["object"]->getSign())==0)
+							&&(array_key_exists($term_index+1, $this->array))
+							&&(strcmp($this->array[$term_index+1], $this->operationen[$t]["object"]->getSign())==0)
+							&&($this->array[$term_index] != ")")
+							&&($this->array[$term_index+1]!="(")
 							) {
 								
 								return false;
@@ -63,8 +61,22 @@
 			}
 			return true;
 		}
-		
-		
+		private function sizeOneAndNotNumeric() {
+			if(sizeof($this->array)==1) {
+				if(!is_numeric($this->array[0])) {
+					return true;
+				}
+			}
+			return false;
+
+		}
+		private function isNotNumericOrKommaOrOperand($term_index, $operation_index) {
+			if((strcmp($this->array[$term_index], $this->operationen[$operation_index]["object"]->getSign())!=0)&&(!is_numeric($this->array[$term_index]))
+			&&($this->array[$term_index]!=",")&&($this->array[$term_index]!=".")) {
+				return true;
+			}
+			return false;
+		}
 		/*Löse den Term auf */
 		public function resolve() {
 
@@ -91,12 +103,12 @@
 			
 			$max_priority = -1;
 			$priority = NULL;
-			for($s=0;$s<sizeof($this->array);$s++) {
-				for($i=0; $i<sizeof($this->operationen);$i++) {
+			for($operation_index=0;$operation_index<sizeof($this->array);$operation_index++) {
+				for($term_index=0; $term_index<sizeof($this->operationen);$term_index++) {
 					
-					if(($this->operationen[$i]["reversepriority"]>$max_priority)&&(strcmp($this->array[$s], $this->operationen[$i]["object"]->getSign())==0)) {
-						$max_priority = $this->operationen[$i]["reversepriority"];
-						$priority = $this->operationen[$i]["object"];
+					if(($this->operationen[$term_index]["reversepriority"]>$max_priority)&&(strcmp($this->array[$operation_index], $this->operationen[$term_index]["object"]->getSign())==0)) {
+						$max_priority = $this->operationen[$term_index]["reversepriority"];
+						$priority = $this->operationen[$term_index]["object"];
 						
 					}
 				}
