@@ -11,7 +11,9 @@
 	use Taschenrechner\Classes\Operationen\Subtraktion;
 	use Taschenrechner\Classes\Numeric;
 
-
+	session_start();
+	unset($_SESSION["exception"]);
+	unset($_SESSION["ergebnis"]);
 	
 	try {
 		$term = $_GET["term"];
@@ -34,14 +36,19 @@
 		$ergebnis = $calculator->calculate($term);
 		//Sende das Ergebnis zurück zu Index.php
 		
+		$_SESSION["ergebnis"] = $ergebnis;
+		$_SESSION["term"] = $term;
 		
-		header("Location: index.php?ergebnis=".urlencode($ergebnis)."&term=".urlencode($term));
+		header("Location: index.php");
 	
 	} catch(Exception $exception) {
 
 		//Sende den Fehler zurück zur Index.php
-		
-		header("Location: index.php?exception=".urlencode($exception->getMessage())."&term=".urlencode($term));
+		$_SESSION["exception"] = $exception->getMessage();
+		$_SESSION["term"] = $term;
+
+
+		header("Location: index.php");
 			
 	}
 ?>
