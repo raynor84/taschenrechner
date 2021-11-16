@@ -20,32 +20,25 @@
 		
 		//Überprüfe ob der Term gültig ist.	
 		public function verify() {
-			//If size is 1 and is not a number it's not a valid term
 			if($this->sizeOneAndNotNumeric()) {
+				echo "test";
 				return false;
 			}
 			for($term_index=0; $term_index<sizeof($this->array); $term_index++) {
 				$bool = 0;
 				for($operation_index = 0; $operation_index<sizeof($this->operationen);$operation_index++) {
-					//Überprüft ob der Wert keines der gültigen Werte besitzt, bsp. ist nich numerisch und hat auch
-					//nicht die nötigen Operationen
 					if($this->isNotNumericOrKommaOrOperand($term_index, $operation_index)) {
 						$bool++;
 					}
-					for($t=1; $t<sizeof($this->operationen);$t++) {
-						if($this->operationen[$t]["object"]->getSign() == "-") {
+					for($operation_index2=1; $operation_index2<sizeof($this->operationen);$operation_index2++) {
+						if($this->operationen[$operation_index2]["object"]->getSign() == "-"
+						|| $this->operationen[$operation_index2]["object"]->getSign() == "+") {
 							continue;
 						}
-						
-						if((strcmp($this->array[$term_index], $this->operationen[$operation_index]["object"]->getSign())==0)
-							&&(array_key_exists($term_index+1, $this->array))
-							&&(strcmp($this->array[$term_index+1], $this->operationen[$t]["object"]->getSign())==0)
-							&&($this->array[$term_index] != ")")
-							&&($this->array[$term_index+1]!="(")
-							) {
-								
-								return false;
-							}
+
+						if($this->isTwoConsecutiveOperandAndNotParanthese($operation_index, $term_index, $operation_index2)) {
+							return false;
+						}
 						
 					}
 				
@@ -54,6 +47,7 @@
 				//Überprüft das logische UND der Operationen
 				if($bool >= sizeof($this->operationen)) {
 					return false;							
+
 				} else {
 					$bool=0;				
 				}
@@ -76,6 +70,19 @@
 				return true;
 			}
 			return false;
+		}
+
+		private function isTwoConsecutiveOperandAndNotParanthese($operation_index, $term_index, $operation_index2) {
+			if((strcmp($this->array[$term_index], $this->operationen[$operation_index]["object"]->getSign())==0)
+			&&(array_key_exists($term_index+1, $this->array))
+			&&(strcmp($this->array[$term_index+1], $this->operationen[$operation_index2]["object"]->getSign())==0)
+			&&($this->array[$term_index] != ")")
+			&&($this->array[$term_index+1]!="(")
+			) {
+				
+				return false;
+			}
+
 		}
 		/*Löse den Term auf */
 		public function resolve() {

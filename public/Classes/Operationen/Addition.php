@@ -10,7 +10,7 @@
 			//Berechne die Operation
 			//return floatval(str_replace(',', '.', str_replace('.', '', $a))) + floatval(str_replace(',', '.', str_replace('.', '', $b)));
 			
-			return floatval($a)+floatval($b);
+			return $a + $b;
 		}
 	}
 ?>

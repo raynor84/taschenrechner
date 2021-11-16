@@ -8,10 +8,11 @@
     			if(!array_key_exists($i, $array)) {break;}
 				//Findet den ersten Numerischen Wert(auch negative)
 				if((is_numeric($array[$i])
-					|| ($this->is_negative($array, $i)))
-					){
+					|| ($this->is_negative($array, $i))
+					|| ($this->is_positive($array, $i))
+					)){
     					
-    					if($this->isNumberWithTwoNegatives($array, $i)) {
+    					if($this->isNumberWithTwoNegatives($array, $i)||($this->isNumberwithTwoPositives($array, $i))) {
 							unset($array[$i]); //unset second minus
 							unset($array[$i-1]); //unset first minus
 							$array = array_values($array);
@@ -54,6 +55,28 @@
 					||(($array[$i]=="-")
 					&&(!array_key_exists($i-1, $array))
 					);	
+		}
+		private function is_positive($array, $i) {
+			return (($array[$i]=="+")
+					   &&(array_key_exists($i-1, $array))
+					   &&(!is_numeric($array[$i-1])))
+					   ||(($array[$i]=="+")
+					   &&(!array_key_exists($i-1, $array))
+					   );	
+		   }
+
+		private function isNumberwithTwoPositives($array, $i) {
+			if(array_key_exists($i-1, $array)
+				&&($array[$i-1]=="+")
+				&&($array[$i]=="+")
+				&&(array_key_exists($i+1, $array))
+				&&(is_numeric($array[$i+1]))
+				&&(!array_key_exists($i-2, $array))
+				) {
+    				return true;
+                }
+                return false;
+
 		}
 		private function isNumberWithTwoNegatives($array, $i) {
 			if(array_key_exists($i-1, $array)
