@@ -21,7 +21,6 @@
 		//Überprüfe ob der Term gültig ist.	
 		public function verify() {
 			if($this->sizeOneAndNotNumeric()) {
-				echo "test";
 				return false;
 			}
 			for($term_index=0; $term_index<sizeof($this->array); $term_index++) {

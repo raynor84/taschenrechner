@@ -11,10 +11,9 @@
 					|| ($this->is_negative($array, $i))
 					|| ($this->is_positive($array, $i))
 					)){
-    					
     					if($this->isNumberWithTwoNegatives($array, $i)||($this->isNumberwithTwoPositives($array, $i))) {
-							unset($array[$i]); //unset second minus
-							unset($array[$i-1]); //unset first minus
+							unset($array[$i]); //unset second operation
+							unset($array[$i-1]); //unset first operation
 							$array = array_values($array);
     						if($i>0)  
                                 $i--;
@@ -22,6 +21,11 @@
                                 $i=0;
 
 						}
+						if($this->is_positive($array, $i)) {
+							unset($array[$i]);
+							$array = array_values($array);
+						}
+
     					//Wenn Gefunden dann überprüfe ob darauf folgende Werte im Array auch numerisch
     					//sind und Füge diese Zusammen.
     					for($s=1; ($s+$i)<sizeof($array); $s++) {
@@ -58,10 +62,9 @@
 		}
 		private function is_positive($array, $i) {
 			return (($array[$i]=="+")
-					   &&(array_key_exists($i-1, $array))
-					   &&(!is_numeric($array[$i-1])))
-					   ||(($array[$i]=="+")
-					   &&(!array_key_exists($i-1, $array))
+					   && (!array_key_exists($i-1, $array))
+					   && (array_key_exists($i+1, $array))
+					   && (is_numeric($array[$i+1]))
 					   );	
 		   }
 
@@ -73,6 +76,7 @@
 				&&(is_numeric($array[$i+1]))
 				&&(!array_key_exists($i-2, $array))
 				) {
+					echo "true";
     				return true;
                 }
                 return false;
