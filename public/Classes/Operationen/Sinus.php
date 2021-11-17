@@ -7,7 +7,7 @@ class Sinus extends Operation {
     }
 
     public function calculate($a, $b=NULL) {
-        return sin($a);
+        return sin(deg2rad($a));
     }
 
     public function findAndCalculateTerm($term) {
@@ -16,7 +16,7 @@ class Sinus extends Operation {
 		   	
 			//füge alle darauf folgenden nummerischen werte zusammen
 			$array = $this->numeric->concatinateNumericValues($array);
-            $array[0] = $this->calculate(2);
+            $array[0] = $this->calculate($array[1]);
             unset($array[1]);
             unset($array[2]);
 

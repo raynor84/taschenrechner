@@ -12,7 +12,6 @@ final class SinTest extends TestCase
 	private $operation;
 	private $numeric;
 	private $calculator;
-    private $stub;
 	protected function setUp(): void
     {
         $this->calculator = $this->createMock(Calculator::class);
@@ -23,7 +22,8 @@ final class SinTest extends TestCase
     
     public function addTermProvider() {
         return array(
-            //"Term sin(2) equals 0.034899497" => array(array("sin(",2,")"),"sin(2)" ,"0.034899497"),
+            "Term sin(2) equals 0.034899496702501" => array(array("sin(",2,")"),"sin(2)" ,"0.034899496702501"),
+            "Term sin(4) equals 0.069756473744125" => array(array("sin(",4,")"),"sin(4)" ,"0.069756473744125"),
 			
         );
     }
