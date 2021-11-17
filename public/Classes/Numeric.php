@@ -64,22 +64,20 @@
 			return (($array[$i]=="+")
 					   && (!array_key_exists($i-1, $array))
 					   && (array_key_exists($i+1, $array))
-					   && (is_numeric($array[$i+1]))
 					   );	
 		   }
 
 		private function isNumberwithTwoPositives($array, $i) {
 			if(array_key_exists($i-1, $array)
-				&&($array[$i-1]=="+")
-				&&($array[$i]=="+")
-				&&(array_key_exists($i+1, $array))
-				&&(is_numeric($array[$i+1]))
-				&&(!array_key_exists($i-2, $array))
-				) {
-					echo "true";
-    				return true;
-                }
-                return false;
+					&&($array[$i-1]=="+")
+					&&($array[$i]=="+")
+					&&(array_key_exists($i+1, $array))
+					&&(is_numeric($array[$i+1]))
+					&&(!array_key_exists($i-2, $array))
+					) {
+						return true;
+			}
+			return false;
 
 		}
 		private function isNumberWithTwoNegatives($array, $i) {
