@@ -32,7 +32,8 @@
         					if(!array_key_exists($s+$i, $array)) {
             					break;
         					}
-    						if(is_numeric($array[$i+$s])||($array[$i+$s]==",")||($array[$i+$s]==".")) {
+							if($this->isNumericOrKomma($array[$i+$s])) {
+
     							$array[$i] .= $array[$i+$s];
     							//Lösche den Eintrag, da dieser mit dem vorherigen Zusammengeführt wurde
     							unset($array[$i+$s]);
@@ -79,6 +80,12 @@
 			}
 			return false;
 
+		}
+		private function isNumericOrKomma($value) {
+			if(is_numeric($value)||($value==",")||($value==".")) {
+				return true;
+			}
+			return false;
 		}
 		private function isNumberWithTwoNegatives($array, $i) {
 			if(array_key_exists($i-1, $array)
