@@ -14,9 +14,10 @@
 	session_start();
 	unset($_SESSION["exception"]);
 	unset($_SESSION["ergebnis"]);
+	unset($_SESSION["term"]);
+	$term = $_GET["term"];
 	
 	try {
-		$term = $_GET["term"];
 		//Initialisiere den Taschenrechner
 		$calculator = new Calculator();
 		
@@ -45,10 +46,10 @@
 
 		//Sende den Fehler zurück zur Index.php
 		$_SESSION["exception"] = $exception->getMessage();
-		$_SESSION["term"] = $term;
-
-
-		header("Location: index.php");
 			
 	}
+	$_SESSION["term"] = $term;
+
+
+	header("Location: index.php");
 ?>
