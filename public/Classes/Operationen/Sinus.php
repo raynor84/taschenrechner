@@ -29,4 +29,4 @@ class Sinus extends Operation {
             }
             return implode("", $array);
     }
-} 
+}
