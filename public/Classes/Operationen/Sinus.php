@@ -18,7 +18,7 @@ class Sinus extends Operation {
 			$array = $this->numeric->concatinateNumericValues($array);
             for($i =0; $i < sizeof($array)-1; $i++) {
                 if($array[$i]=="sin(") {
-                    $array[$i] = $this->calculate($array[1]);
+                    $array[$i] = $this->calculate($array[$i+1]);
                     unset($array[$i+1]);
                     unset($array[$i+2]);
     
