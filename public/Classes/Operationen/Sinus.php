@@ -16,6 +16,7 @@ class Sinus extends Operation {
 		   	
 			//füge alle darauf folgenden nummerischen werte zusammen
             $array = $this->numeric->concatinateNumericValues($array);
+            //TODO change numeric to concatinator
 			//$array = $this->concatinator->concatinateNumericValues($array);
             //$array = $this->concatinator->concatinateOperations($array);
             for($i =0; $i < sizeof($array)-1; $i++) {
