@@ -15,13 +15,15 @@ class Sinus extends Operation {
 			$array = preg_split('/(?<!^)(?!$)/u', $term );
 		   	
 			//füge alle darauf folgenden nummerischen werte zusammen
-			$array = $this->numeric->concatinateNumericValues($array);
+            $array = $this->numeric->concatinateNumericValues($array);
+			//$array = $this->concatinator->concatinateNumericValues($array);
+            //$array = $this->concatinator->concatinateOperations($array);
             for($i =0; $i < sizeof($array)-1; $i++) {
                 if($array[$i]=="sin(") {
                     $array[$i] = $this->calculate($array[$i+1]);
                     unset($array[$i+1]);
                     unset($array[$i+2]);
-    
+                    $array = array_values($array);
                 }
             }
             return implode("", $array);

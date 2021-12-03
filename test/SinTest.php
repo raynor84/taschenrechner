@@ -24,8 +24,8 @@ final class SinTest extends TestCase
         return array(
             "Term sin(2) equals 0.034899496702501" => array(array("sin(",2,")"),"sin(2)" ,"0.034899496702501"),
             "Term sin(4) equals 0.069756473744125" => array(array("sin(",4,")"),"sin(4)" ,"0.069756473744125"),
-            "Term 2*sin(4) equals 0.069756473744125" => array(array("2","*","sin(",4,")"),"2*sin(4)" ,"2*0.069756473744125"),
-			
+            "Term 2*sin(4) equals 2*0.069756473744125" => array(array("2","*","sin(",4,")"),"2*sin(4)" ,"2*0.069756473744125"),
+			"Term sin(4)*2 equals 0.069756473744125*2" => array(array("sin(",4,")","*","2"),"sin(4)*2" ,"0.069756473744125*2"),
         );
     }
 
