@@ -15,7 +15,10 @@ class Cosinus extends Operation {
 			$array = preg_split('/(?<!^)(?!$)/u', $term );
 		   	
 			//füge alle darauf folgenden nummerischen werte zusammen
-            $array = $this->concatinator->concatinateArray($array);
+            $operation = array(0=>"", "object"=>$this);
+			$operations = array($operation);
+
+            $array = $this->concatinator->concatinateArray($array,$operations);
             //TODO change numeric to concatinator
 			//$array = $this->concatinator->concatinateNumericValues($array);
             //$array = $this->concatinator->concatinateOperations($array);

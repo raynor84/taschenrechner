@@ -2,9 +2,9 @@
     namespace Taschenrechner\Classes;
 
 	class Concatinator {
-		public function concatinateArray($array) {
-			$array = $this->concatinateOperations($array);
+		public function concatinateArray($array, $operations) {
 			$array = $this->concatinateNumericValues($array);
+			$array = $this->concatinateOperations($array, $operations);
 			return $array;
 		}
 		public function concatinateNumericValues($array) {
@@ -27,6 +27,9 @@
 						}
 						if($this->is_positive($array, $i)) {
 							unset($array[$i]);
+							if($array[$i+1]=="+") {
+								unset($array[$i+1]);
+							} 
 							$array = array_values($array);
 						}
 
@@ -57,15 +60,25 @@
 			return $array;
 		}
 
-		private function concatinateOperations($array) {
+		private function concatinateOperations($array, $operations) {
 			
-			if(($array[0]=="s")&&($array[1]=="i")&&($array[2]=="n")&&($array[3]=="(")) {
-				$array[0]="sin(";
-				unset($array[1]);
-				unset($array[2]);
-				unset($array[3]);
-				$array = array_values($array);
-			} 
+			foreach($operations as $operation) {
+				if(strlen($operation["object"]->getSign())<4) continue;
+				if(($array[0]==$operation["object"]->getSign()[0])
+					&&($array[1]==$operation["object"]->getSign()[1])
+					&&($array[2]==$operation["object"]->getSign()[2])
+					&&($array[3]==$operation["object"]->getSign()[3])) {
+					$array[0]=$operation["object"]->getSign();
+					
+					unset($array[1]);
+					unset($array[2]);
+					unset($array[3]);
+					
+					$array = array_values($array);
+					break;
+				} 
+	
+			}
 			return $array;
 		}
 		

@@ -20,7 +20,9 @@
 			$array = preg_split('/(?<!^)(?!$)/u', $term );
 		   	
 			//füge alle darauf folgenden nummerischen werte zusammen
-			$array = $this->concatinator->concatinateArray($array);
+			$operation = array(0=>"", "object"=>$this);
+			$operations = array($operation);
+			$array = $this->concatinator->concatinateArray($array, $operations);
 			
 			for($i =0; $i < sizeof($array)-1; $i++) {
 

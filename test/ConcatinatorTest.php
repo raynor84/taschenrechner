@@ -2,10 +2,18 @@
 use PHPUnit\Framework\TestCase;
 
 	use Taschenrechner\Classes\Concatinator;
+    require_once(dirname(__FILE__)."/init.php");
 
 final class ConcatinatorTest extends TestCase
 {
-    private $concatinator;    
+    private $concatinator;   
+    private $operations;
+    protected function setUp(): void
+    {
+        $init = new Init();
+        $this->operations = $init->operations();
+    }
+ 
     public function testTerm25Plus2Plus3(): void
     {
         $this->concatinator = new Concatinator();
@@ -37,8 +45,13 @@ final class ConcatinatorTest extends TestCase
     public function testTermSin25Minus2(): void
     {
         $this->concatinator = new Concatinator();
-        $this->assertSame(array("sin(", "25", ")", "-2"), $this->concatinator->concatinateArray(["s","i","n","(","2", "5",")", "-", "2"]));
+        $this->assertSame(array("sin(", "25", ")", "-2"), $this->concatinator->concatinateArray(["s","i","n","(","2", "5",")", "-", "2"], $this->operations));
 
     }
+    public function testTermCos25Minus2(): void
+    {
+        $this->concatinator = new Concatinator();
+        $this->assertSame(array("cos(", "25", ")", "-2"), $this->concatinator->concatinateArray(["c","o","s","(","2", "5",")", "-", "2"], $this->operations));
 
+    }
 }

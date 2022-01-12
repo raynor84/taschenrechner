@@ -15,7 +15,9 @@
 			//breche den Term in ein Array auf
 			$array = str_split($term);
 			//Füge alle aufeinander folgenden Zahlen zusammen
-			$array = (new Concatinator())->concatinateArray($array);
+			$operation = array(0=>"", "object"=>$this);
+			$operations = array($operation);
+			$array = (new Concatinator())->concatinateArray($array, $operations);
 			//Sucht nach einer Klammer
 			$klammer_zu_gefunden = false;	
 			$klammer_auf = -1;
