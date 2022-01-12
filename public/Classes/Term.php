@@ -21,6 +21,7 @@
 		//Überprüfe ob der Term gültig ist.	
 		public function verify() {
 			$this->array= $this->numeric->concatinateArray($this->array, $this->operationen);
+			
 			if($this->sizeOneAndNotNumeric()) {
 				return false;
 			}

@@ -64,20 +64,23 @@
 			
 			foreach($operations as $operation) {
 				if(strlen($operation["object"]->getSign())<4) continue;
-				if(($array[0]==$operation["object"]->getSign()[0])
-					&&($array[1]==$operation["object"]->getSign()[1])
-					&&($array[2]==$operation["object"]->getSign()[2])
-					&&($array[3]==$operation["object"]->getSign()[3])) {
-					$array[0]=$operation["object"]->getSign();
+				for($i=0; $i<sizeof($array);$i++) {
+					if(($array[$i]==$operation["object"]->getSign()[0])
+					&&($array[$i+1]==$operation["object"]->getSign()[1])
+					&&($array[$i+2]==$operation["object"]->getSign()[2])
+					&&($array[$i+3]==$operation["object"]->getSign()[3])) {
+					$array[$i]=$operation["object"]->getSign();
 					
-					unset($array[1]);
-					unset($array[2]);
-					unset($array[3]);
+					unset($array[$i+1]);
+					unset($array[$i+2]);
+					unset($array[$i+3]);
 					
 					$array = array_values($array);
-					break;
+					break 2;
 				} 
 	
+
+				}
 			}
 			return $array;
 		}
