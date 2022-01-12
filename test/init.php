@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 	use Taschenrechner\Classes\Calculator;
+	use Taschenrechner\Classes\Operationen\Sinus;
 	use Taschenrechner\Classes\Operationen\Klammer;
 	use Taschenrechner\Classes\Operationen\KlammerZu;
 	use Taschenrechner\Classes\Operationen\Wurzel;
@@ -19,6 +20,7 @@ final class Init
 		
 		//Füge Operationen hinzu:
 		//Deklariere einen Term und übergebe den Term
+		$calculator->addOperation(4, new Sinus($calculator, new Concatinator()));
 		$calculator->addOperation(4, new Klammer($calculator, new Concatinator()));
 		$calculator->addOperation(4, new KlammerZu($calculator, new Concatinator()));
 		$calculator->addOperation(3, new Wurzel($calculator, new Concatinator()));

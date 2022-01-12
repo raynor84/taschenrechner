@@ -20,6 +20,7 @@
 		
 		//Überprüfe ob der Term gültig ist.	
 		public function verify() {
+			$this->array= $this->numeric->concatinateArray($this->array);
 			if($this->sizeOneAndNotNumeric()) {
 				return false;
 			}
@@ -85,6 +86,7 @@
 		}
 		/*Löse den Term auf */
 		public function resolve() {
+			$this->array =preg_split('/(?<!^)(?!$)/u', $this->term );
 
 			while(sizeof($this->array)>1) {
 					
@@ -94,7 +96,7 @@
 
 						$this->term = $object->findAndCalculateTerm($this->term);
 						$this->array= preg_split('/(?<!^)(?!$)/u', $this->term );;
-						$this->array = $this->numeric->concatinateNumericValues($this->array);
+						$this->array = $this->numeric->concatinateArray($this->array);
 
 						$this->term = implode("", $this->array);
 					} else {
