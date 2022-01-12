@@ -2,18 +2,18 @@
 use PHPUnit\Framework\TestCase;
 	use Taschenrechner\Classes\Calculator;
 	use Taschenrechner\Classes\Operationen\Wurzel;
-	use Taschenrechner\Classes\Numeric;
+	use Taschenrechner\Classes\Concatinator;
 
 final class WurzelTest extends TestCase
 {
 	private $operation;
-	private $numeric;
+	private $concatinator;
 	private $calculator;
     private $stub;
 	protected function setUp(): void
     {
         $this->calculator = $this->createMock(Calculator::class);
-        $this->numeric = $this->createMock(Numeric::class);
+        $this->concatinator = $this->createMock(Concatinator::class);
     }
     
 
@@ -29,8 +29,8 @@ final class WurzelTest extends TestCase
      */
     public function testTerm($concatinatedValues, $term, $expected)
     {
-        $this->operation = new Wurzel($this->calculator, $this->numeric);
-        $this->numeric->method('concatinateNumericValues')->willReturn($concatinatedValues);
+        $this->operation = new Wurzel($this->calculator, $this->concatinator);
+        $this->concatinator->method('concatinateArray')->willReturn($concatinatedValues);
         
         $this->assertSame($expected, $this->operation->findAndCalculateTerm($term));
 
@@ -39,7 +39,7 @@ final class WurzelTest extends TestCase
     protected function tearDown(): void
     {
         $this->calculator = NULL;
-        $this->numeric = NULL;
+        $this->concatinator = NULL;
 
     }
    

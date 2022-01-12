@@ -3,18 +3,18 @@ use PHPUnit\Framework\TestCase;
 
 	use Taschenrechner\Classes\Calculator;
 	use Taschenrechner\Classes\Operationen\Potenz;
-	use Taschenrechner\Classes\Numeric;
+	use Taschenrechner\Classes\Concatinator;
 
 final class PotenzTest extends TestCase
 {
 	private $operation;
-	private $numeric;
+	private $concatinator;
 	private $calculator;
     private $stub;
 	protected function setUp(): void
     {
         $this->calculator = $this->createMock(Calculator::class);
-        $this->numeric = $this->createMock(Numeric::class);
+        $this->concatinator = $this->createMock(Concatinator::class);
     }
     
 
@@ -30,8 +30,8 @@ final class PotenzTest extends TestCase
      */
     public function testTerm($concatinatedValues, $term, $expected)
     {
-        $this->operation = new Potenz($this->calculator, $this->numeric);
-        $this->numeric->method('concatinateNumericValues')->willReturn($concatinatedValues);
+        $this->operation = new Potenz($this->calculator, $this->concatinator);
+        $this->concatinator->method('concatinateArray')->willReturn($concatinatedValues);
         
         $this->assertSame($expected, $this->operation->findAndCalculateTerm($term));
 
@@ -40,7 +40,7 @@ final class PotenzTest extends TestCase
     protected function tearDown(): void
     {
         $this->calculator = NULL;
-        $this->numeric = NULL;
+        $this->concatinator = NULL;
 
     }
    

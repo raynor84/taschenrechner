@@ -15,7 +15,7 @@ class Sinus extends Operation {
 			$array = preg_split('/(?<!^)(?!$)/u', $term );
 		   	
 			//füge alle darauf folgenden nummerischen werte zusammen
-            $array = $this->numeric->concatinateNumericValues($array);
+            $array = $this->concatinator->concatinateArray($array);
             //TODO change numeric to concatinator
 			//$array = $this->concatinator->concatinateNumericValues($array);
             //$array = $this->concatinator->concatinateOperations($array);

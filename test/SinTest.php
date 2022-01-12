@@ -2,7 +2,7 @@
 use PHPUnit\Framework\TestCase;
 	use Taschenrechner\Classes\Calculator;
 	use Taschenrechner\Classes\Operationen\Sinus;
-	use Taschenrechner\Classes\Numeric;
+	use Taschenrechner\Classes\Concatinator;
 
 
 require_once(dirname(__FILE__)."/../vendor/autoload.php");
@@ -10,12 +10,12 @@ require_once(dirname(__FILE__)."/../vendor/autoload.php");
 final class SinTest extends TestCase
 {
 	private $operation;
-	private $numeric;
+	private $concatinator;
 	private $calculator;
 	protected function setUp(): void
     {
         $this->calculator = $this->createMock(Calculator::class);
-        $this->numeric = $this->createMock(Numeric::class);
+        $this->concatinator = $this->createMock(Concatinator::class);
     }
     
 
@@ -34,8 +34,8 @@ final class SinTest extends TestCase
      */
     public function testTerm($concatinatedValues, $term, $expected)
     {
-        $this->operation = new Sinus($this->calculator, $this->numeric);
-        $this->numeric->method('concatinateNumericValues')->willReturn($concatinatedValues);
+        $this->operation = new Sinus($this->calculator, $this->concatinator);
+        $this->concatinator->method('concatinateArray')->willReturn($concatinatedValues);
         
         $this->assertSame($expected, $this->operation->findAndCalculateTerm($term));
 
@@ -44,7 +44,7 @@ final class SinTest extends TestCase
     protected function tearDown(): void
     {
         $this->calculator = NULL;
-        $this->numeric = NULL;
+        $this->concatinator = NULL;
 
     }
    

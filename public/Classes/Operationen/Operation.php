@@ -1,14 +1,14 @@
 <?php
     namespace Taschenrechner\Classes\Operationen;
     use Taschenrechner\Classes\Calculator;
-    use Taschenrechner\Classes\Numeric;
+    use Taschenrechner\Classes\Concatinator;
 
 	//Abstrakte Klasse Operation
 	abstract class Operation {
     	protected $calculator;
-    	public function __construct(Calculator $calculator, Numeric $numeric) {
+    	public function __construct(Calculator $calculator, Concatinator $concatinator) {
         	$this->calculator = $calculator;
-        	$this->numeric = $numeric;
+        	$this->concatinator = $concatinator;
     	}
 		//Gibt Operanten zurück
 		abstract public function getSign();
@@ -20,7 +20,7 @@
 			$array = preg_split('/(?<!^)(?!$)/u', $term );
 		   	
 			//füge alle darauf folgenden nummerischen werte zusammen
-			$array = $this->numeric->concatinateNumericValues($array);
+			$array = $this->concatinator->concatinateArray($array);
 			
 			for($i =0; $i < sizeof($array)-1; $i++) {
 

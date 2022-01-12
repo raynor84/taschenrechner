@@ -12,7 +12,7 @@ class Calculator {
         	throw new \Exception("Keine Operationen für den Taschenrechner vorhanden");
     	}
 
-		$termobject = new Term($term, $this->operationen, new Numeric());
+		$termobject = new Term($term, $this->operationen, new Concatinator());
 		//Wenn der Term nicht gültig ist schmeiße nen Fehler
 		if(!$termobject->verify()) {
 			throw new \Exception("Bitte einen gültigen Term eingeben");		
