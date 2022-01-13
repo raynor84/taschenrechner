@@ -91,6 +91,9 @@ final class CalculateTest extends TestCase
 			"Term cos(2) equals 0.9993908270191" => array("cos(2)", "0.9993908270191"),
 			"Term 2*cos(2) equals 1.9987816540382" => array("2*cos(2)", "1.9987816540382"),
 			"Term cos(2)*2 equals 1.9987816540382" => array("cos(2)*2", "1.9987816540382"),
+			"Term tan(2) equals 0.034920769491748" => array("tan(2)", "0.034920769491748"),
+			"Term 2*tan(2) equals 0.069841538983496" => array("2*tan(2)", "0.069841538983496"),
+			"Term tan(2)*2 equals 0.069841538983496" => array("tan(2)*2", "0.069841538983496"),
         );
     }
 

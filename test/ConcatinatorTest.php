@@ -54,4 +54,10 @@ final class ConcatinatorTest extends TestCase
         $this->assertSame(array("cos(", "25", ")", "-2"), $this->concatinator->concatinateArray(["c","o","s","(","2", "5",")", "-", "2"], $this->operations));
 
     }
+    public function testTermTan25Minus2(): void
+    {
+        $this->concatinator = new Concatinator();
+        $this->assertSame(array("tan(", "25", ")", "-2"), $this->concatinator->concatinateArray(["t","a","n","(","2", "5",")", "-", "2"], $this->operations));
+
+    }
 }

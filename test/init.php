@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 	use Taschenrechner\Classes\Calculator;
+	use Taschenrechner\Classes\Operationen\Tan;
 	use Taschenrechner\Classes\Operationen\Cosinus;
 	use Taschenrechner\Classes\Operationen\Sinus;
 	use Taschenrechner\Classes\Operationen\Klammer;
@@ -21,6 +22,7 @@ final class Init
 		$calculator = new Calculator();
 		//Füge Operationen hinzu:
 		//Deklariere einen Term und übergebe den Term
+		array_push($this->operations, array(0=>4, "object"=>new Tan($calculator, new Concatinator())));
 		array_push($this->operations, array(0=>4, "object"=>new Cosinus($calculator, new Concatinator())));
 		array_push($this->operations, array(0=>4, "object"=>new Sinus($calculator, new Concatinator())));
 		array_push($this->operations, array(0=>4, "object"=>new Klammer($calculator, new Concatinator())));
@@ -38,6 +40,7 @@ final class Init
 		
 		//Füge Operationen hinzu:
 		//Deklariere einen Term und übergebe den Term
+		$calculator->addOperation(4, new Tan($calculator, new Concatinator()));
 		$calculator->addOperation(4, new Cosinus($calculator, new Concatinator()));
 		$calculator->addOperation(4, new Sinus($calculator, new Concatinator()));
 		$calculator->addOperation(4, new Klammer($calculator, new Concatinator()));
