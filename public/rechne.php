@@ -4,6 +4,7 @@
 	use Taschenrechner\Classes\Operationen\Klammer;
 	use Taschenrechner\Classes\Operationen\KlammerZu;
 	use Taschenrechner\Classes\Operationen\Wurzel;
+	use Taschenrechner\Classes\Operationen\Tan;
 	use Taschenrechner\Classes\Operationen\Cosinus;
 	use Taschenrechner\Classes\Operationen\Sinus;
 	use Taschenrechner\Classes\Operationen\Potenz;
@@ -26,6 +27,7 @@
 		//Füge Operationen hinzu:
 		//Deklariere einen Term und übergebe den Term
 		
+		$calculator->addOperation(4, new Tan($calculator, new Concatinator()));
 		$calculator->addOperation(4, new Sinus($calculator, new Concatinator()));
 		$calculator->addOperation(4, new Wurzel($calculator, new Concatinator()));
 		$calculator->addOperation(4, new Klammer($calculator, new Concatinator()));
