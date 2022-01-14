@@ -3,7 +3,7 @@ use PHPUnit\Framework\TestCase;
 	use Taschenrechner\Classes\Calculator;
 	use Taschenrechner\Classes\Operationen\Tan;
 	use Taschenrechner\Classes\Concatinator;
-
+    require_once "init.php";
 
 require_once(dirname(__FILE__)."/../vendor/autoload.php");
 
@@ -37,7 +37,7 @@ final class TanTest extends TestCase
         $this->operation = new Tan($this->calculator, $this->concatinator);
         $this->concatinator->method('concatinateArray')->willReturn($concatinatedValues);
         
-        $this->assertSame($expected, $this->operation->findAndCalculateTerm($term));
+        $this->assertSame($expected, $this->operation->findAndCalculateTerm($term, (new Init())->operations()));
 
     }
 

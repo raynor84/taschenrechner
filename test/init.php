@@ -22,11 +22,11 @@ final class Init
 		$calculator = new Calculator();
 		//Füge Operationen hinzu:
 		//Deklariere einen Term und übergebe den Term
+		array_push($this->operations, array(0=>5, "object"=>new Klammer($calculator, new Concatinator())));
+		array_push($this->operations, array(0=>0, "object"=>new KlammerZu($calculator, new Concatinator())));
 		array_push($this->operations, array(0=>4, "object"=>new Tan($calculator, new Concatinator())));
 		array_push($this->operations, array(0=>4, "object"=>new Cosinus($calculator, new Concatinator())));
 		array_push($this->operations, array(0=>4, "object"=>new Sinus($calculator, new Concatinator())));
-		array_push($this->operations, array(0=>4, "object"=>new Klammer($calculator, new Concatinator())));
-		array_push($this->operations, array(0=>4, "object"=>new KlammerZu($calculator, new Concatinator())));
 		array_push($this->operations, array(0=>3, "object"=>new Wurzel($calculator, new Concatinator())));
 		array_push($this->operations, array(0=>3, "object"=>new Potenz($calculator, new Concatinator())));
 		array_push($this->operations, array(0=>2, "object"=>new Multiplikation($calculator, new Concatinator())));
@@ -40,11 +40,11 @@ final class Init
 		
 		//Füge Operationen hinzu:
 		//Deklariere einen Term und übergebe den Term
+		$calculator->addOperation(5, new Klammer($calculator, new Concatinator()));
+		$calculator->addOperation(0, new KlammerZu($calculator, new Concatinator()));
 		$calculator->addOperation(4, new Tan($calculator, new Concatinator()));
 		$calculator->addOperation(4, new Cosinus($calculator, new Concatinator()));
 		$calculator->addOperation(4, new Sinus($calculator, new Concatinator()));
-		$calculator->addOperation(4, new Klammer($calculator, new Concatinator()));
-		$calculator->addOperation(4, new KlammerZu($calculator, new Concatinator()));
 		$calculator->addOperation(3, new Wurzel($calculator, new Concatinator()));
 		$calculator->addOperation(3, new Potenz($calculator, new Concatinator()));
 		$calculator->addOperation(2, new Multiplikation($calculator, new Concatinator()));

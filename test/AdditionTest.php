@@ -4,7 +4,7 @@ use PHPUnit\Framework\TestCase;
 	use Taschenrechner\Classes\Operationen\Addition;
 	use Taschenrechner\Classes\Concatinator;
 
-
+require_once "init.php";
 require_once(dirname(__FILE__)."/../vendor/autoload.php");
 
 final class AdditionTest extends TestCase
@@ -24,7 +24,7 @@ final class AdditionTest extends TestCase
         $this->operation = new Addition($this->calculator, $this->concatinator);
         $this->concatinator->method('concatinateArray')->willReturn(array(10,"+",5));
         
-        $this->assertSame("15", $this->operation->findAndCalculateTerm("10+5"));
+        $this->assertSame("15", $this->operation->findAndCalculateTerm("10+5",(new Init())->operations()));
 
     }
 
@@ -44,7 +44,7 @@ final class AdditionTest extends TestCase
         $this->operation = new Addition($this->calculator, $this->concatinator);
         $this->concatinator->method('concatinateArray')->willReturn($concatinatedValues);
         
-        $this->assertSame($expected, $this->operation->findAndCalculateTerm($term));
+        $this->assertSame($expected, $this->operation->findAndCalculateTerm($term, (new Init())->operations()));
 
     }
 

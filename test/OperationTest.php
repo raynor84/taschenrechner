@@ -4,7 +4,7 @@ use PHPUnit\Framework\TestCase;
 	use Taschenrechner\Classes\Operationen\Subtraktion;
 	use Taschenrechner\Classes\Concatinator;
 
-
+    require_once "init.php";
 final class OperationTest extends TestCase
 {
 	private $operation;
@@ -24,7 +24,7 @@ final class OperationTest extends TestCase
         $this->operation = new Subtraktion($this->calculator, $this->concatinator);
 
 		
-        $this->assertSame("0", $this->operation->findAndCalculateTerm("5-5"));
+        $this->assertSame("0", $this->operation->findAndCalculateTerm("5-5", (new Init())->operations()));
 
     }
     
@@ -33,7 +33,7 @@ final class OperationTest extends TestCase
         $this->concatinator->method('concatinateArray')->willReturn(array(10,"-",5));
         $this->operation = new Subtraktion($this->calculator, $this->concatinator);
 		
-        $this->assertSame("5", $this->operation->findAndCalculateTerm("10-5"));
+        $this->assertSame("5", $this->operation->findAndCalculateTerm("10-5", (new Init())->operations()));
 
     }
 

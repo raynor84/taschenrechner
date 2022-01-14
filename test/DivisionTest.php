@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 	use Taschenrechner\Classes\Concatinator;
 	
 require_once(dirname(__FILE__)."/../vendor/autoload.php");
-
+require_once "init.php";
 final class DivisionTest extends TestCase
 {
 	private $operation;
@@ -37,7 +37,7 @@ final class DivisionTest extends TestCase
         $this->operation = new Division($this->calculator, $this->concatinator);
         $this->concatinator->method('concatinateArray')->willReturn($concatinatedValues);
         
-        $this->assertSame($expected, $this->operation->findAndCalculateTerm($term));
+        $this->assertSame($expected, $this->operation->findAndCalculateTerm($term, (new Init())->operations()));
 
     }
 

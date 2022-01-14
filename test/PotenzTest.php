@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
-
+    require_once "init.php";
 	use Taschenrechner\Classes\Calculator;
 	use Taschenrechner\Classes\Operationen\Potenz;
 	use Taschenrechner\Classes\Concatinator;
@@ -33,7 +33,7 @@ final class PotenzTest extends TestCase
         $this->operation = new Potenz($this->calculator, $this->concatinator);
         $this->concatinator->method('concatinateArray')->willReturn($concatinatedValues);
         
-        $this->assertSame($expected, $this->operation->findAndCalculateTerm($term));
+        $this->assertSame($expected, $this->operation->findAndCalculateTerm($term, (new Init())->operations()));
 
     }
 

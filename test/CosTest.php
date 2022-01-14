@@ -4,7 +4,7 @@ use PHPUnit\Framework\TestCase;
 	use Taschenrechner\Classes\Operationen\Cosinus;
 	use Taschenrechner\Classes\Concatinator;
 
-
+require_once "init.php";
 require_once(dirname(__FILE__)."/../vendor/autoload.php");
 
 final class CosTest extends TestCase
@@ -37,7 +37,7 @@ final class CosTest extends TestCase
         $this->operation = new Cosinus($this->calculator, $this->concatinator);
         $this->concatinator->method('concatinateArray')->willReturn($concatinatedValues);
         
-        $this->assertSame($expected, $this->operation->findAndCalculateTerm($term));
+        $this->assertSame($expected, $this->operation->findAndCalculateTerm($term,(new Init())->operations()));
 
     }
 

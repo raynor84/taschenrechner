@@ -4,7 +4,7 @@ use PHPUnit\Framework\TestCase;
 	use Taschenrechner\Classes\Calculator;
 	use Taschenrechner\Classes\Operationen\Multiplikation;
 	use Taschenrechner\Classes\Concatinator;
-
+    require_once "init.php";
 final class MultiplikationTest extends TestCase
 {
 	private $operation;
@@ -35,7 +35,7 @@ final class MultiplikationTest extends TestCase
         $this->operation = new Multiplikation($this->calculator, $this->concatinator);
         $this->concatinator->method('concatinateArray')->willReturn($concatinatedValues);
         
-        $this->assertSame($expected, $this->operation->findAndCalculateTerm($term));
+        $this->assertSame($expected, $this->operation->findAndCalculateTerm($term, (new Init())->operations()));
 
     }
 

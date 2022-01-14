@@ -4,6 +4,7 @@ use PHPUnit\Framework\TestCase;
 	use Taschenrechner\Classes\Operationen\Wurzel;
 	use Taschenrechner\Classes\Concatinator;
 
+    require_once "init.php";
 final class WurzelTest extends TestCase
 {
 	private $operation;
@@ -31,8 +32,8 @@ final class WurzelTest extends TestCase
     {
         $this->operation = new Wurzel($this->calculator, $this->concatinator);
         $this->concatinator->method('concatinateArray')->willReturn($concatinatedValues);
-        
-        $this->assertSame($expected, $this->operation->findAndCalculateTerm($term));
+        $operations = (new Init())->operations();
+        $this->assertSame($expected, $this->operation->findAndCalculateTerm($term, $operations));
 
     }
 
