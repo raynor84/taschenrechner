@@ -19,6 +19,7 @@
 
 			//Sucht nach einer Klammer
 			$klammer_zu_gefunden = false;	
+			$getLastParanthese = false;
 			$klammer_auf = -1;
 			$klammer_zu = -1;
 			$term2="";
@@ -33,10 +34,16 @@
 					}else if(is_numeric($array[$i-1])) {
 						throw new \Exception("Bitte einen gültigen Term eingeben");
 					}
-					for($s = $i; $s < sizeof($array); $s++) {
+					for($s = $i+1; $s < sizeof($array); $s++) {
+						if($array[$s]==$this->getSign()) {
+							$getLastParanthese=true;
+						}
 						if($array[$s]==")") {
 							$klammer_zu = $s;
-							$klammer_zu_gefunden=true;						
+							$klammer_zu_gefunden=true;	
+							if($getLastParanthese==false) {
+								break;
+							}
 						}
 					}
 					if($klammer_zu_gefunden == false) {

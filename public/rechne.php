@@ -4,6 +4,7 @@
 	use Taschenrechner\Classes\Operationen\Klammer;
 	use Taschenrechner\Classes\Operationen\KlammerZu;
 	use Taschenrechner\Classes\Operationen\Wurzel;
+	use Taschenrechner\Classes\Operationen\Tan;
 	use Taschenrechner\Classes\Operationen\Cosinus;
 	use Taschenrechner\Classes\Operationen\Sinus;
 	use Taschenrechner\Classes\Operationen\Potenz;
@@ -26,16 +27,18 @@
 		//Füge Operationen hinzu:
 		//Deklariere einen Term und übergebe den Term
 		
+		$calculator->addOperation(5, new Klammer($calculator, new Concatinator()));
+		$calculator->addOperation(0, new KlammerZu($calculator, new Concatinator()));
+		$calculator->addOperation(4, new Tan($calculator, new Concatinator()));
+		$calculator->addOperation(4, new Cosinus($calculator, new Concatinator()));
 		$calculator->addOperation(4, new Sinus($calculator, new Concatinator()));
-		$calculator->addOperation(4, new Wurzel($calculator, new Concatinator()));
-		$calculator->addOperation(4, new Klammer($calculator, new Concatinator()));
-		$calculator->addOperation(4, new KlammerZu($calculator, new Concatinator()));
-		$calculator->addOperation(3, new Cosinus($calculator, new Concatinator()));
+		$calculator->addOperation(3, new Wurzel($calculator, new Concatinator()));
 		$calculator->addOperation(3, new Potenz($calculator, new Concatinator()));
 		$calculator->addOperation(2, new Multiplikation($calculator, new Concatinator()));
 		$calculator->addOperation(2, new Division($calculator, new Concatinator()));
 		$calculator->addOperation(1, new Addition($calculator, new Concatinator()));
 		$calculator->addOperation(1, new Subtraktion($calculator, new Concatinator()));
+
 		
 		
 		$ergebnis = $calculator->calculate($term);
