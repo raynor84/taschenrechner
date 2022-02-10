@@ -11,15 +11,15 @@
 		public function calculate($a, $b=NULL) {
 			return NULL;
 		}
-		public function findAndCalculateTerm($term) {
+		public function findAndCalculateTerm($term, $operations) {
 			//breche den Term in ein Array auf
-			$array = str_split($term);
+			$array = preg_split('/(?<!^)(?!$)/u', $term );
 			//Füge alle aufeinander folgenden Zahlen zusammen
-			$operation = array(0=>"", "object"=>$this);
-			$operations = array($operation);
 			$array = (new Concatinator())->concatinateArray($array, $operations);
+
 			//Sucht nach einer Klammer
 			$klammer_zu_gefunden = false;	
+			$getLastParanthese = false;
 			$klammer_auf = -1;
 			$klammer_zu = -1;
 			$term2="";
@@ -34,10 +34,16 @@
 					}else if(is_numeric($array[$i-1])) {
 						throw new \Exception("Bitte einen gültigen Term eingeben");
 					}
-					for($s = $i; $s < sizeof($array); $s++) {
+					for($s = $i+1; $s < sizeof($array); $s++) {
+						if($array[$s]==$this->getSign()) {
+							$getLastParanthese=true;
+						}
 						if($array[$s]==")") {
 							$klammer_zu = $s;
-							$klammer_zu_gefunden=true;						
+							$klammer_zu_gefunden=true;	
+							if($getLastParanthese==false) {
+								break;
+							}
 						}
 					}
 					if($klammer_zu_gefunden == false) {
@@ -60,6 +66,7 @@
 					$array[$klammer_auf] = $this->calculator->calculate($term2);
 					$array = array_values($array);
 					$term = implode("", $array);
+					
 					return $term;
 					
 				}
