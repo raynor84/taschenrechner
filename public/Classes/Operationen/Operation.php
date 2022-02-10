@@ -39,18 +39,18 @@
 					$array = array_values($array);
 					//var_dump($array);
 					//Füge den Term wieder zusammen
-					$term = implode("", $array);
+					//$term = implode("", $array);
 
-					return $term;
+					return $array;
 					
 				}
 
 			}
 			if(sizeof($array)>0)
-				$term = implode("", $array);
+				return $array;
 			else 
-				$term = "";
-			return $term;
+				return array(0);
+			
 		}
 	}
 ?>

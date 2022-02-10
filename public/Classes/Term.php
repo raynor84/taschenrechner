@@ -99,18 +99,15 @@
 					$object = $this->getPriorityOperation();
 			
 					if($object != NULL) {
-						$this->term = $object->findAndCalculateTerm($this->term, $this->operationen);
-						$this->array= preg_split('/(?<!^)(?!$)/u', $this->term );
-						$this->array = $this->numeric->concatinateArray($this->array, $this->operationen);
-
-						$this->term = implode("", $this->array);
-
+						$this->array = $object->findAndCalculateTerm($this->term, $this->operationen);
+						
 					} else {
-						$this->array=array(0);
+
 						break;
 					}
 			}
-				
+			
+			$this->term = implode("", $this->array);
 			return $this->term;
 		}
 		

@@ -25,6 +25,6 @@ class Tan extends Operation {
                     $array = array_values($array);
                 }
             }
-            return implode("", $array);
+            return $array;
     }
 }
