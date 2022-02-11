@@ -35,9 +35,6 @@
 					unset($array[$i]);
 					unset($array[$i+1]);
 					$array = array_values($array);
-					//var_dump($array);
-					//Füge den Term wieder zusammen
-					//$term = implode("", $array);
 
 					return $array;
 					

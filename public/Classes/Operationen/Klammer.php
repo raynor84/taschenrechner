@@ -50,7 +50,6 @@
 					for($s=$klammer_auf+1; $s < $klammer_zu; $s++) {
 						$term2.=$array[$s];					
 					}
-					//var_dump($term2);
 					//Erzeuge einen neuen Term
 					
 					
