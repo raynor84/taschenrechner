@@ -99,7 +99,7 @@
 					$object = $this->getPriorityOperation();
 			
 					if($object != NULL) {
-						$this->array = $object->findAndCalculateTerm($this->term, $this->operationen);
+						$this->array = $object->findAndCalculateTerm($this->array, $this->operationen);
 						
 					} else {
 

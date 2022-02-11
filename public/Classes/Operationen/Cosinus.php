@@ -10,9 +10,9 @@ class Cosinus extends Operation {
         return cos(deg2rad($a));
     }
 
-    public function findAndCalculateTerm($term, $operations) {
+    public function findAndCalculateTerm($split_term, $operations) {
             //arbeitet intern mit dem Array
-			$array = preg_split('/(?<!^)(?!$)/u', $term );
+			$array = $split_term;
 		   	
             $array = $this->concatinator->concatinateArray($array,$operations);
             //TODO change numeric to concatinator

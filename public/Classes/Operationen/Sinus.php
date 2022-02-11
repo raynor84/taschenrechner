@@ -10,12 +10,10 @@ class Sinus extends Operation {
         return sin(deg2rad($a));
     }
 
-    public function findAndCalculateTerm($term, $operations) {
+    public function findAndCalculateTerm($split_term, $operations) {
             //arbeitet intern mit dem Array
-			$array = preg_split('/(?<!^)(?!$)/u', $term );
-		   	
-            $array = $this->concatinator->concatinateArray($array, $operations);
-            
+			$array = $split_term;
+		   	            
             for($i = 0; $i < sizeof($array); $i++) {
                 if($array[$i]===$this->getSign()) {
                     $array[$i] = $this->calculate($array[$i+1]);

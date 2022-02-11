@@ -10,16 +10,13 @@ class Tan extends Operation {
         return tan(deg2rad($a));
     }
 
-    public function findAndCalculateTerm($term, $operations) {
+    public function findAndCalculateTerm($split_term, $operations) {
             //arbeitet intern mit dem Array
-			$array = preg_split('/(?<!^)(?!$)/u', $term );
+			$array = $split_term;
 		   	
-			//füge alle darauf folgenden nummerischen werte zusammen
-            $array = $this->concatinator->concatinateArray($array, $operations);
-           
             for($i = 0; $i < sizeof($array); $i++) {
                 if($array[$i]==$this->getSign()) {
-                    $array[$i] = $this->calculate($array[$i+1]);
+                    $array[$i] = (String) $this->calculate($array[$i+1]);
                     unset($array[$i+1]);
                     unset($array[$i+2]);
                     $array = array_values($array);

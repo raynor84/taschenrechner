@@ -11,12 +11,9 @@
 		public function calculate($a, $b=NULL) {
 			return NULL;
 		}
-		public function findAndCalculateTerm($term, $operations) {
-			//breche den Term in ein Array auf
-			$array = preg_split('/(?<!^)(?!$)/u', $term );
-			//Füge alle aufeinander folgenden Zahlen zusammen
-			$array = (new Concatinator())->concatinateArray($array, $operations);
+		public function findAndCalculateTerm($split_term, $operations) {
 
+			$array = $split_term;
 			//Sucht nach einer Klammer
 			$klammer_zu_gefunden = false;	
 			$getLastParanthese = false;

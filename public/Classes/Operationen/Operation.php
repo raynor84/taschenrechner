@@ -14,12 +14,10 @@
 		abstract public function getSign();
 		//Berechnet den Term und gibt den neuen Term zurück
 		abstract public function calculate($a, $b=NULL);
-		public function findAndCalculateTerm($term, $operations) {
+		public function findAndCalculateTerm($split_term, $operations) {
 			
 			//arbeitet intern mit dem Array
-			$array = preg_split('/(?<!^)(?!$)/u', $term );
-		   	
-			$array = $this->concatinator->concatinateArray($array, $operations);
+			$array = $split_term;
 			
 			for($i =0; $i < sizeof($array)-1; $i++) {
 				//Suche nach der Operation
