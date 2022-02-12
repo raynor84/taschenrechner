@@ -65,6 +65,8 @@
 			foreach($operations as $operation) {
 				if(strlen($operation["object"]->getSign())<4) continue;
 				for($i=0; $i<sizeof($array);$i++) {
+					if(!array_key_exists($i+3, $array))
+						continue;
 					if(($array[$i]==$operation["object"]->getSign()[0])
 					&&($array[$i+1]==$operation["object"]->getSign()[1])
 					&&($array[$i+2]==$operation["object"]->getSign()[2])

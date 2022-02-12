@@ -27,8 +27,9 @@
 			}
 			for($term_index=0; $term_index<sizeof($this->array); $term_index++) {
 				$bool = 0;
+
 				for($operation_index = 0; $operation_index<sizeof($this->operationen);$operation_index++) {
-					if($this->isNotNumericOrKommaOrOperand($term_index, $operation_index)) {
+					if($this->isNotNumericOrNotKommaOrNotOperand($term_index, $operation_index)) {
 						$bool++;
 					}
 					for($operation_index2=1; $operation_index2<sizeof($this->operationen);$operation_index2++) {
@@ -42,16 +43,12 @@
 						}
 						
 					}
-				
+					//Überprüft das logische UND der Operationen
+					if($bool >= sizeof($this->operationen)) {
+						return false;							
+					}
 				}
 				
-				//Überprüft das logische UND der Operationen
-				if($bool >= sizeof($this->operationen)) {
-					return false;							
-
-				} else {
-					$bool=0;				
-				}
 				
 			}
 			return true;
@@ -65,7 +62,7 @@
 			return false;
 
 		}
-		private function isNotNumericOrKommaOrOperand($term_index, $operation_index) {
+		private function isNotNumericOrNotKommaOrNotOperand($term_index, $operation_index) {
 			if((strcmp($this->array[$term_index], $this->operationen[$operation_index]["object"]->getSign())!=0)&&(!is_numeric($this->array[$term_index]))
 			&&($this->array[$term_index]!=",")&&($this->array[$term_index]!=".")) {
 				return true;

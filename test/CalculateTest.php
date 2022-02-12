@@ -132,6 +132,11 @@ final class CalculateTest extends TestCase
         $this->expectExceptionMessage("Bitte einen gültigen Term eingeben");
 		$this->calculator->calculate("(");
 	}	
+	public function testTermInvalidTermThrowsException() {
+		//$this->expectException("Exception");
+        $this->expectExceptionMessage("Bitte einen gültigen Term eingeben");
+		$this->calculator->calculate("asdf*dt");
+	}	
 
 	protected function tearDown(): void {
     	$this->calculator=NULL;
