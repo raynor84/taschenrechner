@@ -13,7 +13,6 @@
 				$this->term = $term;
 				$this->numeric = $numeric;
 				//Array mit dem intern gearbeitet wird
-				//statt str_split
 				$this->array =preg_split('/(?<!^)(?!$)/u', $term );
 		}
 		
@@ -122,7 +121,7 @@
 			for($operation_index=0;$operation_index<sizeof($this->array);$operation_index++) {
 				for($term_index=0; $term_index<sizeof($this->operationen);$term_index++) {
 					
-					if(($this->operationen[$term_index]["reversepriority"]>$max_priority)&&(strcmp($this->array[$operation_index], $this->operationen[$term_index]["object"]->getSign())==0)) {
+					if($this->checkMaybeRightOperation($term_index, $operation_index, $max_priority)) {
 						$max_priority = $this->operationen[$term_index]["reversepriority"];
 						$priority = $this->operationen[$term_index]["object"];
 						
@@ -131,6 +130,15 @@
 			}
 			
 			return $priority;
-		}	
+		}
+		
+		private function checkMaybeRightOperation($term_index, $operation_index, $max_priority) {
+			if(($this->operationen[$term_index]["reversepriority"]>$max_priority)
+				&&(strcmp($this->array[$operation_index], $this->operationen[$term_index]["object"]->getSign())==0)) {
+				return true;
+			}
+			return false;
+		}
 	}
+	
 ?>
