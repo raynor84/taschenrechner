@@ -110,40 +110,30 @@ final class CalculateTest extends TestCase
     }
 	
 	
-	/**
-	 * @expectedException Exception
-	 * @expectedExceptionMessage Division by Zero
-	 */
 	public function testTermTwoDivisionByZeroThrowsException() {
 		
-		$this->expectException("Exception");
         $this->expectExceptionMessage("Division by Zero");
 		$this->calculator->calculate("2/0");
 	}
 	public function testTermEmptyDivisionByZeroThrowsException() {
 		
-		$this->expectException("Exception");
         $this->expectExceptionMessage("Division by Zero");
 		$this->calculator->calculate("/0");
 	}	
 
 	public function testTermKlammerOnlyThrowsException() {
-		//$this->expectException("Exception");
         $this->expectExceptionMessage("Bitte einen gültigen Term eingeben");
 		$this->calculator->calculate("(");
 	}	
 	public function testTermasdfTimesdfThrowsException() {
-		//$this->expectException("Exception");
         $this->expectExceptionMessage("Bitte einen gültigen Term eingeben");
 		$this->calculator->calculate("asdf*dt");
 	}	
 	public function testTermAThrowsException() {
-		//$this->expectException("Exception");
         $this->expectExceptionMessage("Bitte einen gültigen Term eingeben");
 		$this->calculator->calculate("a");
 	}	
 	public function testTermPlusPlusParanthesesThrowsException() {
-		//$this->expectException("Exception");
         $this->expectExceptionMessage("Bitte einen gültigen Term eingeben");
 		$this->calculator->calculate("++(");
 	}	
