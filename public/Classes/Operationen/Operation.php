@@ -6,9 +6,8 @@
 	//Abstrakte Klasse Operation
 	abstract class Operation {
     	protected $calculator;
-    	public function __construct(Calculator $calculator, Concatinator $concatinator) {
+    	public function __construct(Calculator $calculator) {
         	$this->calculator = $calculator;
-        	$this->concatinator = $concatinator;
     	}
 		//Gibt Operanten zurück
 		abstract public function getSign();
@@ -41,10 +40,7 @@
 				}
 
 			}
-			if(sizeof($array)>0)
-				return $array;
-			else 
-				return array(0);
+			return $array;
 			
 		}
 	}

@@ -100,7 +100,11 @@
 			
 					if($object != NULL) {
 						$this->array = $object->findAndCalculateTerm($this->array, $this->operationen);
-						
+						$this->term = implode("", $this->array);
+						$this->array = preg_split('/(?<!^)(?!$)/u', $this->term );
+	
+						$this->array = $this->numeric->concatinateArray($this->array, $this->operationen);
+							
 					} else {
 
 						break;

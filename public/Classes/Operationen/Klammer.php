@@ -61,18 +61,12 @@
 					//zurück
 					$array[$klammer_auf] = $this->calculator->calculate($term2);
 					$array = array_values($array);
-					$term = implode("", $array);
-					$array = preg_split('/(?<!^)(?!$)/u', $term );
-					$array = (new Concatinator())->concatinateArray($array, $operations);
 
 					return $array;
 					
 				}
 
 			}
-			$term = implode("", $array);
-			$array = preg_split('/(?<!^)(?!$)/u', $term );
-			$array = (new Concatinator())->concatinateArray($array, $operations);
 			return $array;
 		}
 	}
