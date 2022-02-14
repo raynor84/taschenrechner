@@ -90,7 +90,6 @@
 			while(sizeof($this->array)>1) {
 					
 					$this->array = $this->numeric->concatinateArray($this->array, $this->operationen);
-					$this->term = implode("", $this->array);
 
 					$object = $this->getPriorityOperation();
 			
@@ -99,13 +98,13 @@
 						$this->term = implode("", $this->array);
 						$this->array = preg_split('/(?<!^)(?!$)/u', $this->term );
 	
-						$this->array = $this->numeric->concatinateArray($this->array, $this->operationen);
 							
 					} else {
 
 						break;
 					}
 			}
+			$this->array = $this->numeric->concatinateArray($this->array, $this->operationen);
 			
 			$this->term = implode("", $this->array);
 			return $this->term;

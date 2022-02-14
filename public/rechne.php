@@ -27,17 +27,17 @@
 		//Füge Operationen hinzu:
 		//Deklariere einen Term und übergebe den Term
 		
-		$calculator->addOperation(5, new Klammer($calculator, new Concatinator()));
-		$calculator->addOperation(0, new KlammerZu($calculator, new Concatinator()));
-		$calculator->addOperation(4, new Tan($calculator, new Concatinator()));
-		$calculator->addOperation(4, new Cosinus($calculator, new Concatinator()));
-		$calculator->addOperation(4, new Sinus($calculator, new Concatinator()));
-		$calculator->addOperation(3, new Wurzel($calculator, new Concatinator()));
-		$calculator->addOperation(3, new Potenz($calculator, new Concatinator()));
-		$calculator->addOperation(2, new Multiplikation($calculator, new Concatinator()));
-		$calculator->addOperation(2, new Division($calculator, new Concatinator()));
-		$calculator->addOperation(1, new Addition($calculator, new Concatinator()));
-		$calculator->addOperation(1, new Subtraktion($calculator, new Concatinator()));
+		$calculator->addOperation(5, new Klammer($calculator));
+		$calculator->addOperation(0, new KlammerZu($calculator));
+		$calculator->addOperation(4, new Tan($calculator));
+		$calculator->addOperation(4, new Cosinus($calculator));
+		$calculator->addOperation(4, new Sinus($calculator));
+		$calculator->addOperation(3, new Wurzel($calculator));
+		$calculator->addOperation(3, new Potenz($calculator));
+		$calculator->addOperation(2, new Multiplikation($calculator));
+		$calculator->addOperation(2, new Division($calculator));
+		$calculator->addOperation(1, new Addition($calculator));
+		$calculator->addOperation(1, new Subtraktion($calculator));
 
 		
 		
