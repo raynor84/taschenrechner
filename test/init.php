@@ -22,34 +22,37 @@ final class Init
 		$calculator = new Calculator();
 		$concatinator = new Concatinator();
 		//Füge Operationen hinzu:
-		array_push($this->operations, array(0=>5, "object"=>new Klammer($calculator, $concatinator)));
-		array_push($this->operations, array(0=>4, "object"=>new Tan($calculator, $concatinator)));
-		array_push($this->operations, array(0=>4, "object"=>new Cosinus($calculator, $concatinator)));
-		array_push($this->operations, array(0=>4, "object"=>new Sinus($calculator, $concatinator)));
-		array_push($this->operations, array(0=>3, "object"=>new Wurzel($calculator, $concatinator)));
-		array_push($this->operations, array(0=>3, "object"=>new Potenz($calculator, $concatinator)));
-		array_push($this->operations, array(0=>2, "object"=>new Multiplikation($calculator, $concatinator)));
-		array_push($this->operations, array(0=>2, "object"=>new Division($calculator, $concatinator)));
-		array_push($this->operations, array(0=>1, "object"=>new Addition($calculator, $concatinator)));
-		array_push($this->operations, array(0=>1, "object"=>new Subtraktion($calculator, $concatinator)));
-		array_push($this->operations, array(0=>0, "object"=>new KlammerZu($calculator, $concatinator)));
+		//Deklariere einen Term und übergebe den Term
+		array_push($this->operations, array(0=>5, "object"=>new Klammer($calculator)));
+		array_push($this->operations, array(0=>0, "object"=>new KlammerZu($calculator)));
+		array_push($this->operations, array(0=>4, "object"=>new Tan($calculator)));
+		array_push($this->operations, array(0=>4, "object"=>new Cosinus($calculator)));
+		array_push($this->operations, array(0=>4, "object"=>new Sinus($calculator)));
+		array_push($this->operations, array(0=>3, "object"=>new Wurzel($calculator)));
+		array_push($this->operations, array(0=>3, "object"=>new Potenz($calculator)));
+		array_push($this->operations, array(0=>2, "object"=>new Multiplikation($calculator)));
+		array_push($this->operations, array(0=>2, "object"=>new Division($calculator)));
+		array_push($this->operations, array(0=>1, "object"=>new Addition($calculator)));
+		array_push($this->operations, array(0=>1, "object"=>new Subtraktion($calculator)));
 	}
 
     public function calculator() {
 		$calculator = new Calculator();
 		$concatinator = new Concatinator();
 		//Füge Operationen hinzu:
-		$calculator->addOperation(5, new Klammer($calculator, $concatinator));
-		$calculator->addOperation(4, new Tan($calculator, $concatinator));
-		$calculator->addOperation(4, new Cosinus($calculator, $concatinator));
-		$calculator->addOperation(4, new Sinus($calculator, $concatinator));
-		$calculator->addOperation(3, new Wurzel($calculator, $concatinator));
-		$calculator->addOperation(3, new Potenz($calculator, $concatinator));
-		$calculator->addOperation(2, new Multiplikation($calculator, $concatinator));
-		$calculator->addOperation(2, new Division($calculator, $concatinator));
-		$calculator->addOperation(1, new Addition($calculator, $concatinator));
-		$calculator->addOperation(1, new Subtraktion($calculator, $concatinator));
-		$calculator->addOperation(0, new KlammerZu($calculator, $concatinator));
+		//Deklariere einen Term und übergebe den Term
+		$calculator->addOperation(5, new Klammer($calculator));
+		$calculator->addOperation(0, new KlammerZu($calculator));
+		$calculator->addOperation(4, new Tan($calculator));
+		$calculator->addOperation(4, new Cosinus($calculator));
+		$calculator->addOperation(4, new Sinus($calculator));
+		$calculator->addOperation(3, new Wurzel($calculator));
+		$calculator->addOperation(3, new Potenz($calculator));
+		$calculator->addOperation(2, new Multiplikation($calculator));
+		$calculator->addOperation(2, new Division($calculator));
+		$calculator->addOperation(1, new Addition($calculator));
+		$calculator->addOperation(1, new Subtraktion($calculator));
+
 
         return $calculator;
     } 
