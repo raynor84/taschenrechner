@@ -86,7 +86,6 @@ final class CalculateTest extends TestCase
 			"Term 8 equals 8" => array("8", "8"),
 			"Term (9*3) sqrt 3 equals 3" => array("3√(9*3)", "3"),
 			"Term sin(2) equals 0.034899496702501" => array("sin(2)", "0.034899496702501"),
-			
 			"Term 2*sin(2) equals 0.069798993405002" => array("2*sin(2)", "0.069798993405002"),
 			"Term sin(2)*2 equals 0.069798993405002" => array("sin(2)*2", "0.069798993405002"),
 			"Term cos(2) equals 0.9993908270191" => array("cos(2)", "0.9993908270191"),
