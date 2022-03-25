@@ -53,35 +53,6 @@
 			}
 			return true;
 		}
-		private function sizeOneAndNotNumeric() {
-			if(sizeof($this->array)==1) {
-				if(!is_numeric($this->array[0])) {
-					return true;
-				}
-			}
-			return false;
-
-		}
-		private function isNotNumericOrNotKommaOrNotOperand($term_index, $operation_index) {
-			if((strcmp($this->array[$term_index], $this->operationen[$operation_index]["object"]->getSign())!=0)&&(!is_numeric($this->array[$term_index]))
-			&&($this->array[$term_index]!=",")&&($this->array[$term_index]!=".")) {
-				return true;
-			}
-			return false;
-		}
-
-		private function isTwoConsecutiveOperandAndNotParanthese($operation_index, $term_index, $operation_index2) {
-			if((strcmp($this->array[$term_index], $this->operationen[$operation_index]["object"]->getSign())==0)
-			&&(array_key_exists($term_index+1, $this->array))
-			&&(strcmp($this->array[$term_index+1], $this->operationen[$operation_index2]["object"]->getSign())==0)
-			&&($this->array[$term_index] != ")")
-			&&($this->array[$term_index+1]!="(")
-			) {
-				
-				return false;
-			}
-
-		}
 		/*Löse den Term auf */
 		public function resolve() {
 			$this->array =preg_split('/(?<!^)(?!$)/u', $this->term );
@@ -92,7 +63,7 @@
 					$this->array = $this->numeric->concatinateArray($this->array, $this->operationen);
 
 					$object = $this->getPriorityOperation();
-			
+                                
 					if($object != NULL) {
 						$this->array = $object->findAndCalculateTerm($this->array, $this->operationen);
 						$this->term = implode("", $this->array);
@@ -126,6 +97,35 @@
 			}
 			
 			return $priority;
+		}
+		private function sizeOneAndNotNumeric() {
+			if(sizeof($this->array)==1) {
+				if(!is_numeric($this->array[0])) {
+					return true;
+				}
+			}
+			return false;
+
+		}
+		private function isNotNumericOrNotKommaOrNotOperand($term_index, $operation_index) {
+			if((strcmp($this->array[$term_index], $this->operationen[$operation_index]["object"]->getSign())!=0)&&(!is_numeric($this->array[$term_index]))
+			&&($this->array[$term_index]!=",")&&($this->array[$term_index]!=".")) {
+				return true;
+			}
+			return false;
+		}
+
+		private function isTwoConsecutiveOperandAndNotParanthese($operation_index, $term_index, $operation_index2) {
+			if((strcmp($this->array[$term_index], $this->operationen[$operation_index]["object"]->getSign())==0)
+			&&(array_key_exists($term_index+1, $this->array))
+			&&(strcmp($this->array[$term_index+1], $this->operationen[$operation_index2]["object"]->getSign())==0)
+			&&($this->array[$term_index] != ")")
+			&&($this->array[$term_index+1]!="(")
+			) {
+				
+				return false;
+			}
+
 		}
 		
 		private function checkMaybeRightOperation($term_index, $operation_index, $max_priority) {

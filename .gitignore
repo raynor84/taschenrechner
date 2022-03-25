@@ -1,3 +1,8 @@
 /vendor
 .DS_Store
 .history/
+nbproject/project.properties
+nbproject/project.xml
+.gitignore
+nbproject/private/private.xml
+nbproject/private/private.properties
