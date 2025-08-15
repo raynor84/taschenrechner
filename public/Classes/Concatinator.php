@@ -1,7 +1,7 @@
 <?php
     namespace Taschenrechner\Classes;
 
-	class Concatinator {
+	class Concatinator implements IConcatinator {
 		public function concatinateArray($array, $operations) {
 			$array = $this->concatinateNumericValues($array);
 			$array = $this->concatinateOperations($array, $operations);

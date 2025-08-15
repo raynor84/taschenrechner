@@ -13,13 +13,14 @@ use PHPUnit\Framework\TestCase;
 	use Taschenrechner\Classes\Operationen\Addition;
 	use Taschenrechner\Classes\Operationen\Subtraktion;
 	use Taschenrechner\Classes\Concatinator;
-
+    use Taschenrechner\Classes\ICalculator;
 
 final class Init
 {
 	private $operations = array();
 	public function __construct() {
-		$calculator = new Calculator();
+	    /** @var ICalculator $calculator */
+	    $calculator = ( new Calculator());
 		$concatinator = new Concatinator();
 		//Füge Operationen hinzu:
 		//Deklariere einen Term und übergebe den Term
@@ -37,7 +38,7 @@ final class Init
 	}
 
     public function calculator() {
-		$calculator = new Calculator();
+        $calculator = (new Calculator());
 		$concatinator = new Concatinator();
 		//Füge Operationen hinzu:
 		//Deklariere einen Term und übergebe den Term

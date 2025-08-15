@@ -13,7 +13,9 @@
 	use Taschenrechner\Classes\Operationen\Addition;
 	use Taschenrechner\Classes\Operationen\Subtraktion;
 	use Taschenrechner\Classes\Concatinator;
-
+	use Taschenrechner\Classes\ICalculator;
+	
+	
 	session_start();
 	unset($_SESSION["exception"]);
 	unset($_SESSION["ergebnis"]);
@@ -22,7 +24,7 @@
 	
 	try {
 		//Initialisiere den Taschenrechner
-		$calculator = new Calculator();
+		$calculator = (ICalculator) (new Calculator());
 		
 		//Füge Operationen hinzu:
 		//Deklariere einen Term und übergebe den Term
