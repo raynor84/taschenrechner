@@ -51,7 +51,7 @@ namespace Taschenrechner\Classes;
 	        $object = $this->getPriorityOperation();
 	        
 	        if($object != NULL) {
-	            $this->array = $object->findAndCalculateTerm($this->array, $this->operationen);
+	            $this->array = $object->findAndCalculateTerm($this);
 	            $this->term = implode("", $this->array);
 	            $this->array = preg_split('/(?<!^)(?!$)/u', $this->term );
 	            
@@ -66,7 +66,12 @@ namespace Taschenrechner\Classes;
 	    $this->term = implode("", $this->array);
 	    return $this->term;
 	}
-	
+	public function getTermArray() {
+	    return $this->array;
+	}
+	public function getOperations() {
+	    return $this->operations;
+    }
 	private function getPriorityOperation() {
 	    
 	    $max_priority = -1;

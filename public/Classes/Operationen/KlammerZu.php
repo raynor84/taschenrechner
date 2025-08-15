@@ -1,6 +1,6 @@
 <?php
 	namespace Taschenrechner\Classes\Operationen;
-
+	use Taschenrechner\Classes\ICalculator;
 	
 	class KlammerZu extends Operation {
 		//KlammerZu beinhaltet als Operation eine schließende Klammer
@@ -9,7 +9,7 @@
 		}	
 		
 		//Tue nichts mit dem Term (wird bereits in Klammer) durchgeführt.
-		public function findAndCalculate($term) {
+		public function findAndCalculateTerm(ICalculator $calculator) {
 			return $term;
 		}
 		public function calculate($a, $b=NULL) {

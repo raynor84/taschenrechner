@@ -2,7 +2,7 @@
 	namespace Taschenrechner\Classes\Operationen;
     use Taschenrechner\Classes\Calculator;
     use Taschenrechner\Classes\Concatinator;
-	
+    use Taschenrechner\Classes\ICalculator;
 	class Klammer extends Operation {
 		//Gibt das Zeichen für die Operation zurück
 		public function getSign() {
@@ -11,9 +11,9 @@
 		public function calculate($a, $b=NULL) {
 			return NULL;
 		}
-		public function findAndCalculateTerm($split_term, $operations) {
+		public function findAndCalculateTerm(ICalculator $calculator) {
 
-			$array = $split_term;
+		    $array = $calculator->getTermArray();
 			//Sucht nach einer Klammer
 			$klammer_zu_gefunden = false;	
 			$getLastParanthese = false;

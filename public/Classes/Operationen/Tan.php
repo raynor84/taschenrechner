@@ -1,6 +1,7 @@
 <?php
 
 namespace Taschenrechner\Classes\Operationen;
+use Taschenrechner\Classes\ICalculator;
 class Tan extends Operation {
     public function getSign() {
         return "tan(";
@@ -10,9 +11,9 @@ class Tan extends Operation {
         return tan(deg2rad($a));
     }
 
-    public function findAndCalculateTerm($split_term, $operations) {
+    public function findAndCalculateTerm(ICalculator $calculator) {
             //arbeitet intern mit dem Array
-			$array = $split_term;
+            $array = $calculator->getTermArray();
 		   	
             for($i = 0; $i < sizeof($array); $i++) {
                 if($array[$i]==$this->getSign()) {

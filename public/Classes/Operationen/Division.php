@@ -1,6 +1,6 @@
 <?php
 	namespace Taschenrechner\Classes\Operationen;
-
+	use Taschenrechner\Classes\ICalculator;
 	class Division extends Operation {
 		//Gibt das Zeichen für die Operation zurück
 		public function getSign() {
@@ -14,5 +14,8 @@
 			return floatval($a) / floatval($b);
 	
 		}	
+		public function findAndCalculateTerm(ICalculator $calculator) {
+		    return (new einfacheOperation())->findAndCalculateTerm($calculator, $this);
+		}
 	}
 ?>
