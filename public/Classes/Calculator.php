@@ -27,7 +27,7 @@ namespace Taschenrechner\Classes;
 	        throw new \Exception("Keine Operationen für den Taschenrechner vorhanden");
 	    }
 	    
-	    $termVerifierobject = new TermVerifier($term, $this->operationen, new Concatinator());
+	    $termVerifierobject = new TermVerifier($this->operationen);
 	    //Wenn der Term nicht gültig ist schmeiße nen Fehler
 	    if(!$termVerifierobject->verify()) {
 	        throw new \Exception("Bitte einen gültigen Term eingeben");

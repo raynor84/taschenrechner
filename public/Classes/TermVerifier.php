@@ -3,11 +3,10 @@ namespace Taschenrechner\Classes;
 
 class TermVerifier implements IVerifier
 {
-    public function __construct(String $term, Array $operationen, $numeric) {
+    public function __construct(Array $operationen) {
         //Initialisiere alle möglichen Operationen und speichere Sie im Attribut Operationen
         $this->operationen = $operationen;
-        $this->term = $term;
-        $this->numeric = $numeric;
+        
         //Array mit dem intern gearbeitet wird
         $this->array =preg_split('/(?<!^)(?!$)/u', $term );
     }
