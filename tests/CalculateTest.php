@@ -94,9 +94,8 @@ final class CalculateTest extends TestCase
 			"Term tan(2) equals 0.034920769491748" => array("tan(2)", "0.034920769491748"),
 			"Term 2*tan(2) equals 0.069841538983496" => array("2*tan(2)", "0.069841538983496"),
 			"Term tan(2)*2 equals 0.069841538983496" => array("tan(2)*2", "0.069841538983496"),
-			"Term tan((2*2)) equals 0.06992681194351" => array("tan((2*2))", "0.06992681194351"),
-			
-        );
+			"Term tan(2*2) equals 0.06992681194351" => array("tan((2*2))", "0.06992681194351"),
+		);
     }
 
     /**
