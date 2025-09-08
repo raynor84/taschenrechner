@@ -6,4 +6,3 @@ nbproject/project.xml
 .gitignore
 nbproject/private/private.xml
 nbproject/private/private.properties
-composer.lock
