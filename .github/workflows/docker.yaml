@@ -9,13 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       -
-        name: Run Unittests
+        name: checkout
         uses: actions/checkout@v1
       -
+        name: run composer
         uses: nick-zh/composer-php@master
         with:
          action: 'install -oa' #or alternative dependency management
       - 
+        name: run unittests
         run: vendor/bin/phpunit tests 
       -
         name: Login to Docker Hub
