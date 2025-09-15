@@ -17,6 +17,6 @@ jobs:
     - name: Run composer
       uses: nick-zh/composer-php@master
       with:
-        action: 'install -oa --dev' or alternative dependency management
+        action: 'install -oa --dev' #or alternative dependency management
       run: vendor/bin/phpunit tests 
 
