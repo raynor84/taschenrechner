@@ -15,6 +15,7 @@ jobs:
         uses: nick-zh/composer-php@master
         with:
          action: 'install -oa' #or alternative dependency management
+      - 
         run: vendor/bin/phpunit tests 
       -
         name: Login to Docker Hub
