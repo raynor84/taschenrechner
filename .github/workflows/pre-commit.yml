@@ -9,14 +9,16 @@ on:
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v3
-    - uses: pre-commit/action@v3.0.1   
-    steps:
-    - name: Run composer
-      uses: nick-zh/composer-php@master
-      with:
-        action: 'install -oa --dev' #or alternative dependency management
-      run: vendor/bin/phpunit tests 
+    -
+     steps:
+     - uses: actions/checkout@v2
+     - uses: actions/setup-python@v3
+     - uses: pre-commit/action@v3.0.1   
+    -
+     steps:
+     - name: Run composer
+       uses: nick-zh/composer-php@master
+       with:
+         action: 'install -oa --dev' #or alternative dependency management
+       run: vendor/bin/phpunit tests 
 
