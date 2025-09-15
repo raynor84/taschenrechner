@@ -16,6 +16,6 @@ jobs:
      - uses: pre-commit/action@v3.0.1   
      - uses: nick-zh/composer-php@master
        with:
-         action: 'install -oa --dev' #or alternative dependency management
+         action: 'install -oa' #or alternative dependency management
      - run: vendor/bin/phpunit tests 
 
