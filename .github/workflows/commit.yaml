@@ -1,11 +1,16 @@
-name: Commit
+ 
+name: pre-commit
+
 on:
-  commit:
+  pull_request:
+  push:
+    branches: [main]
 
 jobs:
-  docker:
+  pre-commit:
     runs-on: ubuntu-latest
-  steps:
-   - uses: actions/checkout@v1
-   - uses: graychen/phpunit-action@v1.0.0
-   # ... then your own project steps ...
+    steps:
+    - uses: actions/checkout@v3
+    - uses: pre-commit/action@v3.0.1   
+    - uses: graychen/phpunit-action@v1.0.0
+
