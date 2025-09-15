@@ -11,6 +11,7 @@ jobs:
       -
         name: Run Unittests
         uses: actions/checkout@v1
+      -
         uses: nick-zh/composer-php@master
         with:
          action: 'install -oa' #or alternative dependency management
