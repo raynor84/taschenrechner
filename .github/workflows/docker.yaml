@@ -33,7 +33,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v6
         with:
-          context: ./nginx/Dockerfile
+          context: ../../nginx/Dockerfile
           push: true
           tags: stefanfischer84/taschenrechner:latest
       -
