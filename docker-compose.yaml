@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile-php
+    container_name: php-app
+    restart: always
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+  nginx:
+    image: nginx:1.19-alpine
+    container_name: programwithgio-nginx
+    restart: always
+    ports:
+      - 8000:80
+    volumes:
+      - .:/var/www
+      - ./nginx/conf.d:/etc/nginx/conf.d

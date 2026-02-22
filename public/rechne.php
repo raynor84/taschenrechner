@@ -1,5 +1,5 @@
 <?php
-	require_once __DIR__ . '/../vendor/autoload.php';
+	require __DIR__ . '/../vendor/autoload.php';
 	use Taschenrechner\Classes\Calculator;
 	use Taschenrechner\Classes\Operationen\Klammer;
 	use Taschenrechner\Classes\Operationen\KlammerZu;
@@ -24,7 +24,10 @@
 	
 	try {
 		//Initialisiere den Taschenrechner
-		$calculator = (ICalculator) (new Calculator());
+        $calculator = new Calculator();
+        if (!($calculator instanceof ICalculator)) {
+            throw new Exception('Calculator must implement ICalculator');
+        }
 		
 		//Füge Operationen hinzu:
 		//Deklariere einen Term und übergebe den Term
